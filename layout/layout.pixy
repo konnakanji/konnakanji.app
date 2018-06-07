@@ -1,0 +1,6 @@
+component Layout(ctx *aero.Context)
+	html
+		head
+			title= ctx.App.Config.Title
+		body
+			h1= ctx.App.Config.Title
