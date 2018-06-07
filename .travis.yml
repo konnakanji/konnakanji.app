@@ -13,6 +13,8 @@ matrix:
 
 before_script:
   - npm install -g typescript
+  - go get -u golang.org/x/tools/cmd/goimports
+  - go install golang.org/x/tools/cmd/goimports
   - go get -u github.com/aerogo/pack
   - go install github.com/aerogo/pack
   - tsc
