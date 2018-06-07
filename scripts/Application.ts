@@ -1,34 +1,25 @@
 export default class Application extends HTMLElement {
-	date: Date
-	timer: number
-
 	constructor() {
 		super()
 	}
 
 	connectedCallback() {
-		this.tick()
-
-		this.timer = setInterval(
-			() => this.tick(),
-			1000
-		)
-	}
-
-	disconnectedCallback() {
-		clearInterval(this.timer)
-	}
-
-	tick() {
-		this.date = new Date()
-		this.render()
-	}
-
-	render() {
-		this.innerText = this.date.toLocaleTimeString()
+		this.loading = false
 	}
 
 	attributeChangedCallback(attrName, oldVal, newVal) {
 		console.log("attribute changed")
+	}
+
+	get loading() {
+		return this.hasAttribute("loading")
+	}
+
+	set loading(value: boolean) {
+		if(value) {
+			this.setAttribute("loading", "true")
+		} else {
+			this.removeAttribute("loading")
+		}
 	}
 }

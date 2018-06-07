@@ -8,5 +8,6 @@ component Layout(ctx *aero.Context)
 
 			title= ctx.App.Config.Title
 		body
-			my-app(my-param="123") Content
+			my-app(loading="true")
+				h1 こんな漢字
 			script(src="/scripts")

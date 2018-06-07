@@ -4,7 +4,10 @@
 	"fonts": [
 		"Ubuntu"
 	],
-	"styles": [],
+	"styles": [
+		"reset",
+		"base"
+	],
 	"scripts": {
 		"main": "main"
 	},

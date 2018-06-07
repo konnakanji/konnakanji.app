@@ -2,7 +2,11 @@ my-app
 	display flex
 	justify-content center
 	align-items center
-	color white
 	background hsl(0, 0%, 76%)
 	padding 1rem
-	margin 0
+	opacity 1
+	transition opacity 500ms ease
+
+	[loading]
+		opacity 0.5
+		pointer-events none
