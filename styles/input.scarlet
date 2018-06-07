@@ -1,0 +1,24 @@
+mixin button-hover
+	:hover,
+	&.active
+		cursor pointer
+		color button-hover-color
+		background button-hover-background
+
+	:active
+		transform translateY(3px)
+
+input, textarea, button, .button, select
+	font-family inherit
+	font-size 1em
+	line-height 1.25em
+	color text-color
+
+button
+	horizontal
+	padding 0.5rem 1rem
+	color button-color
+	align-items center
+	pointer-events all
+	height input-height
+	button-hover

@@ -5,6 +5,8 @@
 		"Ubuntu"
 	],
 	"styles": [
+		"mixins/layout",
+		"config",
 		"reset",
 		"base"
 	],
@@ -20,7 +22,8 @@
 		"short_name": "Konna Kanji",
 		"start_url": "/",
 		"display": "standalone",
-		"lang": "en"
+		"lang": "en",
+		"theme_color": "#ef371f"
 	},
 	"ports": {
 		"http": 4000,

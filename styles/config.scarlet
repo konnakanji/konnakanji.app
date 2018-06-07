@@ -1,0 +1,5 @@
+// Colors
+text-color-h = 0
+text-color-s = 0%
+text-color-l = 23.5%
+text-color = hsl(text-color-h, text-color-s, text-color-l)

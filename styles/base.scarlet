@@ -3,6 +3,7 @@ html
 
 body
 	font-family "Ubuntu"
-	background hsl(0, 0%, 88%)
+	background hsl(0, 0%, 90%)
+	color text-color
 	height 100%
 	margin 0

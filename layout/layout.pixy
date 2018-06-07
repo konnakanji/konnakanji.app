@@ -9,6 +9,13 @@ component Layout(ctx *aero.Context)
 			title= ctx.App.Config.Title
 		body
 			app-view(loading="true")
-				kanji-view(kanji="漢字")
+				.test
+					kanji-view(kanji="漢字")
+
+					.answers
+						button.answer A
+						button.answer B
+						button.answer C
+						button.answer D
 			
 			script(src="/scripts")

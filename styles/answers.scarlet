@@ -1,0 +1,6 @@
+.answers
+	horizontal-wrap
+	margin-top 1rem
+
+.answer
+	width 50%
