@@ -13,8 +13,13 @@ matrix:
 
 before_script:
   - bash <(curl -s https://raw.githubusercontent.com/blitzprog/gotravis/master/before-script.sh)
+  - npm install -g typescript
+  - go get -u github.com/aerogo/pack
+  - go install github.com/aerogo/pack
 
 script:
+  - tsc
+  - pack
   - bash <(curl -s https://raw.githubusercontent.com/blitzprog/gotravis/master/script.sh)
 
 after_success:
