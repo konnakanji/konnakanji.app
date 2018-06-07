@@ -32,3 +32,4 @@ _cgo_export.*
 
 # Project specific
 /konnakanji
+/node_modules
