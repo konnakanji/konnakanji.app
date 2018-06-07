@@ -3,13 +3,21 @@ package main
 import (
 	"net/http"
 	"net/http/httptest"
+	"syscall"
 	"testing"
+	"time"
 
 	"github.com/aerogo/aero"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestApp(t *testing.T) {
+func TestAppRun(t *testing.T) {
+	go main()
+	time.Sleep(1 * time.Second)
+	syscall.Kill(syscall.Getpid(), syscall.SIGINT)
+}
+
+func TestFrontPage(t *testing.T) {
 	app := configure(aero.New())
 
 	request, _ := http.NewRequest("GET", "/", nil)
