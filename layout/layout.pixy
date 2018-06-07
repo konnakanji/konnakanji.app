@@ -1,8 +1,8 @@
 component Layout(ctx *aero.Context)
-	html
+	html(lang="en")
 		head
 			title= ctx.App.Config.Title
 		body
 			main#root
-			
+
 			script(src="/scripts")
