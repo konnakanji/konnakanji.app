@@ -12,6 +12,11 @@ func main() {
 }
 
 func configure(app *aero.Application) *aero.Application {
+	app.Security.Load(
+		"security/default/fullchain.pem",
+		"security/default/privkey.pem",
+	)
+
 	app.Get("/", func(ctx *aero.Context) string {
 		return ctx.HTML(components.Layout(ctx))
 	})

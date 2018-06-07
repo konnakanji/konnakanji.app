@@ -6,7 +6,9 @@
 	"scripts": {
 		"main": "main"
 	},
-	"push": [],
+	"push": [
+		"/scripts"
+	],
 	"manifest": {
 		"name": "Konna Kanji",
 		"short_name": "Konna Kanji",

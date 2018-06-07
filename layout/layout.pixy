@@ -3,4 +3,6 @@ component Layout(ctx *aero.Context)
 		head
 			title= ctx.App.Config.Title
 		body
-			h1= ctx.App.Config.Title
+			main#root
+			
+			script(src="/scripts")
