@@ -13,8 +13,8 @@ func main() {
 
 func configure(app *aero.Application) *aero.Application {
 	app.Security.Load(
-		"security/default/fullchain.pem",
-		"security/default/privkey.pem",
+		"security/default/server.crt",
+		"security/default/server.key",
 	)
 
 	app.Get("/", func(ctx *aero.Context) string {
