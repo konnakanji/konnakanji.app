@@ -1,5 +1,5 @@
-import AppView from "./AppView"
-import KanjiView from "./KanjiView"
+import AppView from "elements/app-view/app-view"
+import KanjiView from "elements/kanji-view/kanji-view"
 
 // Custom element names must have a dash in their name
 const elements = new Map<string, Function>([
