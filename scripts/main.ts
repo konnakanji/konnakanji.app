@@ -1,1 +1,3 @@
-console.log("Hello World")
+import Application from "./Application"
+
+window.customElements.define("my-app", Application)

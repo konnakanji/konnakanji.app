@@ -1,0 +1,10 @@
+*
+	box-sizing inherit
+
+html
+	box-sizing border-box
+
+body
+	font-family "Ubuntu"
+	background hsl(0, 0%, 88%)
+	margin 0

@@ -1,0 +1,8 @@
+my-app
+	display flex
+	justify-content center
+	align-items center
+	color white
+	background hsl(0, 0%, 76%)
+	padding 1rem
+	margin 0

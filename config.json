@@ -1,13 +1,16 @@
 {
 	"domain": "konnakanji.app",
 	"title": "Konna Kanji",
-	"fonts": [],
+	"fonts": [
+		"Ubuntu"
+	],
 	"styles": [],
 	"scripts": {
 		"main": "main"
 	},
 	"push": [
-		"/scripts"
+		"/scripts",
+		"/styles"
 	],
 	"manifest": {
 		"name": "Konna Kanji",
