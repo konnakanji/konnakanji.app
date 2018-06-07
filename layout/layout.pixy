@@ -8,6 +8,7 @@ component Layout(ctx *aero.Context)
 
 			title= ctx.App.Config.Title
 		body
-			my-app(loading="true")
-				h1 こんな漢字
+			app-view(loading="true")
+				kanji-view(kanji="漢字")
+			
 			script(src="/scripts")

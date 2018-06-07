@@ -1,14 +1,6 @@
-export default class Application extends HTMLElement {
-	constructor() {
-		super()
-	}
-
+export default class AppView extends HTMLElement {
 	connectedCallback() {
 		this.loading = false
-	}
-
-	attributeChangedCallback(attrName, oldVal, newVal) {
-		console.log("attribute changed")
 	}
 
 	get loading() {

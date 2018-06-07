@@ -1,4 +1,8 @@
+html
+	height 100%
+
 body
 	font-family "Ubuntu"
 	background hsl(0, 0%, 88%)
+	height 100%
 	margin 0
