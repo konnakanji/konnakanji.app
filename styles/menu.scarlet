@@ -1,0 +1,5 @@
+#main-menu
+	vertical
+
+	button
+		margin-bottom 0.4rem

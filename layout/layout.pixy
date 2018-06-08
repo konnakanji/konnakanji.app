@@ -9,14 +9,17 @@ component Layout(ctx *aero.Context)
 			title= ctx.App.Config.Title
 		body
 			app-view(loading="true")
-				multiple-choice-question
-					.question
-						kanji-view(kanji="")
+				nav#main-menu
 
-					.answers
-						button.answer
-						button.answer
-						button.answer
-						button.answer
+			//- template#multiple-choice-test-template
+			//- 	multiple-choice-test(questions="[]")
+			//- 		.question
+			//- 			kanji-view(kanji="")
+
+			//- 		.answers
+			//- 			button.answer
+			//- 			button.answer
+			//- 			button.answer
+			//- 			button.answer
 			
 			script(src="/scripts")

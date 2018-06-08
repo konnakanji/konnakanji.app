@@ -1,6 +1,6 @@
 answer-margin = 0.2rem
 
-multiple-choice-question
+multiple-choice-test
 	vertical
 	flex 1
 

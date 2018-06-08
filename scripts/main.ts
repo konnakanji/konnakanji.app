@@ -1,6 +1,6 @@
 import AppView from "elements/app-view/app-view"
 import KanjiView from "elements/kanji-view/kanji-view"
-import MultipleChoiceQuestion from "elements/multiple-choice-question/multiple-choice-question"
+import MultipleChoiceTest from "elements/multiple-choice-test/multiple-choice-test"
 
 // Error message if browser is too old
 if(!("customElements" in window)) {
@@ -11,7 +11,7 @@ if(!("customElements" in window)) {
 const elements = new Map<string, Function>([
 	["app-view", AppView],
 	["kanji-view", KanjiView],
-	["multiple-choice-question", MultipleChoiceQuestion]
+	["multiple-choice-test", MultipleChoiceTest]
 ])
 
 // Register all custom elements

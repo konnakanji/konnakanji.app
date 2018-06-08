@@ -1,33 +1,59 @@
+import AppView from "../app-view/app-view"
 import KanjiView from "../kanji-view/kanji-view"
+import randomItem from "scripts/randomItem"
 
-const vocabulary = {
-	"漢字": "かんじ",
-	"感じ": "かんじ",
-	"行く": "いく",
-	"飲む": "のむ",
-	"食べる": "たべる",
-	"分かる": "わかる"
-}
-
-function randomItem<T>(collection: T[]) {
-	return collection[Math.floor(Math.random() * collection.length)]
-}
-
-export default class MultipleChoiceQuestion extends HTMLElement {
+export default class MultipleChoiceTest extends HTMLElement {
+	appView: AppView
 	kanjiView: KanjiView
+	questionsInTest: string[]
+	questionIndex: number
 	question: HTMLDivElement
 	answers: HTMLButtonElement[]
 
-	connectedCallback() {
-		this.kanjiView = this.getElementsByTagName("kanji-view")[0] as KanjiView
-		this.question = this.getElementsByClassName("question")[0] as HTMLDivElement
+	constructor(questions: string[]) {
+		super()
+		this.setAttribute("questions", JSON.stringify(questions))
+	}
+
+	async connectedCallback() {
+		this.question = document.createElement("div")
+		this.question.classList.add("question")
+		this.appendChild(this.question)
+
+		this.kanjiView = new KanjiView()
+		this.question.appendChild(this.kanjiView)
+
+		let answersContainer = document.createElement("div")
+		answersContainer.classList.add("answers")
+		this.appendChild(answersContainer)
+
+		for(let i = 0; i < 4; i++) {
+			let answer = document.createElement("button")
+			answer.classList.add("answer")
+			answersContainer.appendChild(answer)
+		}
+
+		this.appView = document.getElementsByTagName("app-view")[0] as AppView
 		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
-		
+		this.questionsInTest = JSON.parse(this.getAttribute("questions")) as string[] || []
+
+		this.startTest()
+
+		// Bind event listeners at the end
 		for(let answer of this.answers) {
 			answer.addEventListener("click", e => this.onAnswerClicked(e.target as HTMLButtonElement))
 		}
 
 		this.question.addEventListener("click", e => this.onQuestionClicked(e))
+	}
+
+	startTest() {
+		if(this.questionsInTest.length === 0) {
+			console.error("No questions")
+			return
+		}
+
+		this.questionIndex = -1
 		this.nextQuestion()
 	}
 
@@ -44,12 +70,21 @@ export default class MultipleChoiceQuestion extends HTMLElement {
 	}
 
 	nextQuestion() {
-		let allKanji = Object.keys(vocabulary)
-		let nextKanji = randomItem(allKanji)
+		this.questionIndex++
 
+		if(this.questionIndex >= this.questionsInTest.length) {
+			this.onFinishTest()
+			return
+		}
+
+		let nextKanji = this.questionsInTest[this.questionIndex]
 		this.kanjiView.kanji = nextKanji
 		this.clearAnswers()
 		this.generateAnswers()
+	}
+
+	onFinishTest() {
+		this.parentElement.removeChild(this)
 	}
 
 	clearAnswers() {
@@ -62,7 +97,7 @@ export default class MultipleChoiceQuestion extends HTMLElement {
 	}
 
 	get correctAnswer() {
-		return vocabulary[this.kanjiView.kanji]
+		return this.appView.words.get(this.kanjiView.kanji).hiragana
 	}
 
 	get solved() {
@@ -70,7 +105,7 @@ export default class MultipleChoiceQuestion extends HTMLElement {
 	}
 
 	generateAnswers() {
-		let allKana = Object.values(vocabulary)
+		let allKana = [...this.appView.words.values()]
 		let used = new Set<string>()
 
 		// Add correct answer
@@ -84,12 +119,12 @@ export default class MultipleChoiceQuestion extends HTMLElement {
 				continue
 			}
 
-			let text = randomItem(allKana)
+			let text = randomItem(allKana).hiragana
 
 			// Avoid duplicate answers
 			if(allKana.length >= this.answers.length) {
 				while(used.has(text)) {
-					text = randomItem(allKana)
+					text = randomItem(allKana).hiragana
 				}
 			}
 

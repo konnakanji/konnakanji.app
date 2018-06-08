@@ -35,5 +35,9 @@ func configure(app *aero.Application) *aero.Application {
 		return ctx.JSON(app.Config.Manifest)
 	})
 
+	app.Get("/words/*file", func(ctx *aero.Context) string {
+		return ctx.File("words/" + ctx.Get("file"))
+	})
+
 	return app
 }

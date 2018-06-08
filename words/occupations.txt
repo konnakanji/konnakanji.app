@@ -1,0 +1,14 @@
+医者|いしゃ|doctor
+看護師|かんごし|nurse
+看護婦|かんごふ|female nurse
+歯科医|しかい|dentist
+歯医者|はいしゃ|dentist
+政治家|せいじか|politician
+弁護士|べんごし|lawyer
+消防士|しょうぼうし|firefighter
+警察官|けいさつかん|police officer
+兵士|へいし|soldier
+建築家|けんちくか|architect
+先生|せんせい|teacher
+教師|きょうし|(academic) teacher
+歌手|かしゅ|singer
