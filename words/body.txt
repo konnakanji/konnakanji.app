@@ -20,8 +20,8 @@
 爪|つめ|nail
 手|て|hand
 手首|てくび|wrist
-手のてのひら|平|palm of hand
-指|ゆび|finger,toe
+手の平|てのひら|palm of hand
+指|ゆび|finger, toe
 尻|しり|buttocks
 お腹|おなか|abdomen
 肝臓|かんぞう|liver
