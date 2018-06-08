@@ -11,12 +11,12 @@ component Layout(ctx *aero.Context)
 			app-view(loading="true")
 				multiple-choice-question
 					.question
-						kanji-view(kanji="漢字")
+						kanji-view(kanji="")
 
 					.answers
-						button.answer かに
-						button.answer かんじ
-						button.answer わに
-						button.answer さんじ
+						button.answer
+						button.answer
+						button.answer
+						button.answer
 			
 			script(src="/scripts")

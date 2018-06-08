@@ -1,3 +1,5 @@
+answer-margin = 0.2rem
+
 multiple-choice-question
 	vertical
 	flex 1
@@ -11,8 +13,12 @@ multiple-choice-question
 	horizontal-wrap
 	margin-top 1rem
 
-answer-margin = 0.2rem
-
 .answer
 	width calc(50% - answer-margin * 2)
 	margin answer-margin
+
+.correct
+	color green
+
+.wrong
+	color red

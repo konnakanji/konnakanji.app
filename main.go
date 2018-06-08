@@ -7,9 +7,10 @@ import (
 	"github.com/konnakanji/konnakanji/components/js"
 )
 
+var mainApp = aero.New()
+
 func main() {
-	app := aero.New()
-	configure(app).Run()
+	configure(mainApp).Run()
 }
 
 func configure(app *aero.Application) *aero.Application {

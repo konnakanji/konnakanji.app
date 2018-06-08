@@ -11,10 +11,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAppRun(t *testing.T) {
+func TestMain(t *testing.T) {
+	mainApp.OnStart(func() {
+		time.Sleep(1 * time.Second)
+		syscall.Kill(syscall.Getpid(), syscall.SIGINT)
+	})
+
 	go main()
-	time.Sleep(1 * time.Second)
-	syscall.Kill(syscall.Getpid(), syscall.SIGINT)
 }
 
 func TestFrontPage(t *testing.T) {
