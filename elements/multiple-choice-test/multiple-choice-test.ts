@@ -85,6 +85,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	onFinishTest() {
 		this.parentElement.removeChild(this)
+		this.appView.menuActivated = true
 	}
 
 	clearAnswers() {
