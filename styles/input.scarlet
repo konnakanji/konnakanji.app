@@ -12,7 +12,7 @@ input, textarea, button, select
 	ui-element
 	font-family inherit
 	font-size 1em
-	line-height 1.25em
+	line-height 1.5em
 	color text-color
 
 button

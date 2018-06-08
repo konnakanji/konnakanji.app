@@ -17,6 +17,7 @@ multiple-choice-test
 	width calc(50% - answer-margin * 2)
 	margin answer-margin
 	font-size 1.2rem
+	clip-long-text
 
 .correct
 	color white
