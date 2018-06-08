@@ -12,7 +12,8 @@ export default class AppView extends HTMLElement {
 
 		this.wordSets = await Promise.all([
 			this.parse("/words/people.txt"),
-			this.parse("/words/occupations.txt")
+			this.parse("/words/occupations.txt"),
+			this.parse("/words/body.txt")
 		])
 
 		for(let wordSet of this.wordSets) {

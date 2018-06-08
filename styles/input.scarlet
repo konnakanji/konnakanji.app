@@ -22,3 +22,6 @@ button
 	align-items center
 	pointer-events all
 	button-hover
+
+	[disabled]
+		opacity 0.4

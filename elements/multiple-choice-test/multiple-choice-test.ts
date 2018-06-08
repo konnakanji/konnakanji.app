@@ -23,6 +23,11 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.kanjiView = new KanjiView()
 		this.question.appendChild(this.kanjiView)
 
+		// let returnButton = document.createElement("a")
+		// returnButton.classList.add("button")
+		// returnButton.href = "/"
+		// this.appendChild(returnButton)
+
 		let answersContainer = document.createElement("div")
 		answersContainer.classList.add("answers")
 		this.appendChild(answersContainer)
@@ -151,13 +156,6 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 			// Show answer in green
 			answer.classList.add("correct")
-
-			// Disable incorrect answer
-			for(let element of this.answers) {
-				if(element !== answer) {
-					element.disabled = true
-				}
-			}
 		} else {
 			answer.classList.add("wrong")
 
@@ -166,6 +164,13 @@ export default class MultipleChoiceTest extends HTMLElement {
 					element.classList.add("correct")
 					break
 				}
+			}
+		}
+
+		// Disable incorrect answer
+		for(let element of this.answers) {
+			if(element.innerText !== correctAnswer && !element.classList.contains("wrong")) {
+				element.disabled = true
 			}
 		}
 	}
