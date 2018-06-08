@@ -18,7 +18,9 @@ multiple-choice-question
 	margin answer-margin
 
 .correct
-	color green
+	color white
+	background hsl(120, 100%, 32%)
 
 .wrong
-	color red
+	color white
+	background red

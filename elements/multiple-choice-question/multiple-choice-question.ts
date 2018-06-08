@@ -15,40 +15,75 @@ function randomItem<T>(collection: T[]) {
 
 export default class MultipleChoiceQuestion extends HTMLElement {
 	kanjiView: KanjiView
-	answers: HTMLElement[]
+	question: HTMLDivElement
+	answers: HTMLButtonElement[]
 
 	connectedCallback() {
 		this.kanjiView = this.getElementsByTagName("kanji-view")[0] as KanjiView
-		this.answers = [...this.getElementsByClassName("answer")] as HTMLElement[]
+		this.question = this.getElementsByClassName("question")[0] as HTMLDivElement
+		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
 		
 		for(let answer of this.answers) {
-			answer.addEventListener("click", e => this.onAnswerClicked(e.target as HTMLElement))
+			answer.addEventListener("click", e => this.onAnswerClicked(e.target as HTMLButtonElement))
 		}
 
-		this.randomQuestion()
+		this.question.addEventListener("click", e => this.onQuestionClicked(e))
+		this.nextQuestion()
 	}
 
-	randomQuestion() {
+	onQuestionClicked(e: MouseEvent) {
+		if(e.target !== this.question) {
+			return
+		}
+
+		if(!this.solved) {
+			return
+		}
+
+		this.nextQuestion()
+	}
+
+	nextQuestion() {
 		let allKanji = Object.keys(vocabulary)
 		let nextKanji = randomItem(allKanji)
 
 		this.kanjiView.kanji = nextKanji
+		this.clearAnswers()
 		this.generateAnswers()
 	}
 
 	clearAnswers() {
 		for(let answer of this.answers) {
 			answer.innerText = ""
+			answer.classList.remove("correct")
+			answer.classList.remove("wrong")
+			answer.disabled = false
 		}
 	}
 
+	get correctAnswer() {
+		return vocabulary[this.kanjiView.kanji]
+	}
+
+	get solved() {
+		return !!this.answers.find(answer => answer.classList.contains("correct"))
+	}
+
 	generateAnswers() {
-		this.clearAnswers()
 		let allKana = Object.values(vocabulary)
 		let used = new Set<string>()
+
+		// Add correct answer
 		let correctAnswerIndex = Math.floor(Math.random() * this.answers.length)
+		this.answers[correctAnswerIndex].innerText = this.correctAnswer
+		used.add(this.correctAnswer)
 
 		for(let answer of this.answers) {
+			// Skip existing answers
+			if(answer.innerText !== "") {
+				continue
+			}
+
 			let text = randomItem(allKana)
 
 			// Avoid duplicate answers
@@ -63,18 +98,35 @@ export default class MultipleChoiceQuestion extends HTMLElement {
 		}
 	}
 
-	onAnswerClicked(answer: HTMLElement) {
-		console.log("Clicked answer", answer)
+	onAnswerClicked(answer: HTMLButtonElement) {
+		if(answer.disabled) {
+			return
+		}
 
-		let correctAnswerText = vocabulary[this.kanjiView.kanji]
+		let correctAnswer = this.correctAnswer
 
-		if(answer.innerText === correctAnswerText) {
+		if(answer.innerText === correctAnswer) {
+			// If we clicked on the correctly highlighted answer,
+			// simply go to the next question.
+			if(answer.classList.contains("correct")) {
+				this.nextQuestion()
+				return
+			}
+
+			// Show answer in green
 			answer.classList.add("correct")
+
+			// Disable incorrect answer
+			for(let element of this.answers) {
+				if(element !== answer) {
+					element.disabled = true
+				}
+			}
 		} else {
 			answer.classList.add("wrong")
 
 			for(let element of this.answers) {
-				if(element.innerText === correctAnswerText) {
+				if(element.innerText === correctAnswer) {
 					element.classList.add("correct")
 					break
 				}
