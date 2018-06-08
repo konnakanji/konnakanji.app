@@ -1,0 +1,21 @@
+家族|かぞく|family
+両親|りょうしん|parents
+子供|こども|children, child
+父|ちち|father
+母|はは|mother
+妻|つま|wife
+夫|おっと|husband
+兄|あに|older brother
+姉|あね|older sister
+弟|おとうと|younger brother
+妹|いもうと|younger sister
+兄弟|きょうだい|brothers, siblings
+姉妹|しまい|sisters
+祖父|そふ|grandfather
+祖母|そぼ|grandmother
+孫|まご|grandchild
+伯父|おじ|uncle
+伯母|おば|aunt
+従兄弟|いとこ|cousin
+姪|めい|niece
+甥|おい|nephew

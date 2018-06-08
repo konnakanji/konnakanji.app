@@ -10,11 +10,15 @@ export default class AppView extends HTMLElement {
 		this.mainMenu = document.getElementById("main-menu")
 		this.words = new Map<string, Word>()
 
-		this.wordSets = await Promise.all([
-			this.parse("/words/people.txt"),
-			this.parse("/words/occupations.txt"),
-			this.parse("/words/body.txt")
-		])
+		this.wordSets = await Promise.all(
+			[
+				"people",
+				"occupations",
+				"body",
+				"family"
+			]
+			.map(topic => this.parse(`/words/${topic}.txt`))
+		)
 
 		for(let wordSet of this.wordSets) {
 			let button = document.createElement("button")
