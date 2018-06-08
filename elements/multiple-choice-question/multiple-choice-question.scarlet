@@ -16,10 +16,11 @@ multiple-choice-question
 .answer
 	width calc(50% - answer-margin * 2)
 	margin answer-margin
+	font-size 1.2rem
 
 .correct
 	color white
-	background hsl(120, 100%, 32%)
+	background hsl(120, 100%, 30%)
 
 .wrong
 	color white
