@@ -1,5 +1,23 @@
-// Colors
+// Text color
 text-color-h = 0
 text-color-s = 0%
 text-color-l = 23.5%
 text-color = hsl(text-color-h, text-color-s, text-color-l)
+
+// Background color
+bg-color-h = 0
+bg-color-s = 0%
+bg-color-l = 96%
+bg-color = hsl(bg-color-h, bg-color-s, bg-color-l)
+
+// UI
+ui-border-color = hsla(0, 0%, 0%, 0.1)
+ui-border = 1px solid ui-border-color
+ui-hover-border-color = hsla(0, 0%, 0%, 0.15)
+ui-hover-border = 1px solid ui-hover-border-color
+
+ui-background-l = 99.5%
+ui-background = hsl(bg-color-h, bg-color-s, ui-background-l)
+
+ui-disabled-color = hsla(0, 0%, 88%, 1)
+const ui-element-border-radius = 3px

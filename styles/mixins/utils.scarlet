@@ -1,0 +1,7 @@
+mixin default-transition
+	transition all transition-speed ease
+
+mixin clip-long-text
+	overflow hidden
+	white-space nowrap
+	text-overflow ellipsis

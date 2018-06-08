@@ -8,7 +8,8 @@ mixin button-hover
 	:active
 		transform translateY(3px)
 
-input, textarea, button, .button, select
+input, textarea, button, select
+	ui-element
 	font-family inherit
 	font-size 1em
 	line-height 1.25em
@@ -20,5 +21,4 @@ button
 	color button-color
 	align-items center
 	pointer-events all
-	height input-height
 	button-hover

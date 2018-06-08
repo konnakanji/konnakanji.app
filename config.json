@@ -2,12 +2,14 @@
 	"domain": "konnakanji.app",
 	"title": "Konna Kanji",
 	"fonts": [
-		"Ubuntu"
+		"Open Sans"
 	],
 	"styles": [
-		"mixins/layout",
-		"config",
 		"reset",
+		"config",
+		"mixins/layout",
+		"mixins/utils",
+		"mixins/ui",
 		"base"
 	],
 	"scripts": {
