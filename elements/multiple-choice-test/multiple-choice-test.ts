@@ -17,11 +17,10 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	async connectedCallback() {
-		this.initDOM()
-
 		this.appView = document.getElementsByTagName("app-view")[0] as AppView
-		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
 
+		this.initDOM()
+		this.bindEventListeners()
 		this.startTest()
 	}
 
@@ -38,17 +37,20 @@ export default class MultipleChoiceTest extends HTMLElement {
 		// returnButton.href = "/"
 		// this.appendChild(returnButton)
 
+		this.answers = new Array<HTMLButtonElement>(4)
+
 		let answersContainer = document.createElement("div")
 		answersContainer.classList.add("answers")
 		this.appendChild(answersContainer)
 
-		for(let i = 0; i < 4; i++) {
-			let answer = document.createElement("button")
-			answer.classList.add("answer")
-			answersContainer.appendChild(answer)
+		for(let i = 0; i < this.answers.length; i++) {
+			this.answers[i] = document.createElement("button")
+			this.answers[i].classList.add("answer")
+			answersContainer.appendChild(this.answers[i])
 		}
+	}
 
-		// Bind event listeners at the end
+	bindEventListeners() {
 		for(let answer of this.answers) {
 			answer.addEventListener("click", e => this.onAnswerClicked(e.target as HTMLButtonElement))
 		}
