@@ -2,6 +2,13 @@ import Word from "scripts/Word"
 import MultipleChoiceTest from "../multiple-choice-test/multiple-choice-test"
 import State from "scripts/State"
 
+const predefinedWordSets = [
+	"people",
+	"occupations",
+	"body",
+	"family"
+]
+
 export default class MainMenu extends HTMLElement {
 	constructor() {
 		super()
@@ -9,13 +16,7 @@ export default class MainMenu extends HTMLElement {
 
 	async connectedCallback() {
 		State.wordSets = await Promise.all(
-			[
-				"people",
-				"occupations",
-				"body",
-				"family"
-			]
-			.map(topic => this.parse(`/words/${topic}.txt`))
+			predefinedWordSets.map(topic => this.parse(`/words/${topic}.txt`))
 		)
 
 		for(let wordSet of State.wordSets) {

@@ -13,10 +13,19 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	constructor(questions: string[]) {
 		super()
-		this.setAttribute("questions", JSON.stringify(questions))
+		this.questionsInTest = questions
 	}
 
 	async connectedCallback() {
+		this.initDOM()
+
+		this.appView = document.getElementsByTagName("app-view")[0] as AppView
+		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
+
+		this.startTest()
+	}
+
+	initDOM() {
 		this.question = document.createElement("div")
 		this.question.classList.add("question")
 		this.appendChild(this.question)
@@ -38,12 +47,6 @@ export default class MultipleChoiceTest extends HTMLElement {
 			answer.classList.add("answer")
 			answersContainer.appendChild(answer)
 		}
-
-		this.appView = document.getElementsByTagName("app-view")[0] as AppView
-		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
-		this.questionsInTest = JSON.parse(this.getAttribute("questions")) as string[] || []
-
-		this.startTest()
 
 		// Bind event listeners at the end
 		for(let answer of this.answers) {
