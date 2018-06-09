@@ -3,6 +3,7 @@ component Layout(ctx *aero.Context)
 		head
 			link(rel="stylesheet", href="/styles")
 			link(rel="manifest", href="/manifest.json")
+			link(rel="shortcut icon", type="image/png", href="/images/brand/kk-128.png")
 
 			title= ctx.App.Config.Title
 

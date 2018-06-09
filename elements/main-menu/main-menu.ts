@@ -10,10 +10,6 @@ const predefinedWordSets = [
 ]
 
 export default class MainMenu extends HTMLElement {
-	constructor() {
-		super()
-	}
-
 	async connectedCallback() {
 		State.wordSets = await Promise.all(
 			predefinedWordSets.map(topic => this.parse(`/words/${topic}.txt`))
