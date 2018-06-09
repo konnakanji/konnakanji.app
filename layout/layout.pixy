@@ -4,21 +4,11 @@ component Layout(ctx *aero.Context)
 			link(rel="stylesheet", href="/styles")
 			link(rel="manifest", href="/manifest.json")
 
-			meta(name="viewport", content="width=device-width, initial-scale=1")
-
 			title= ctx.App.Config.Title
+
+			meta(name="viewport", content="width=device-width, initial-scale=1")
+		
 		body
 			app-view(loading="true")
 
-			//- template#multiple-choice-test-template
-			//- 	multiple-choice-test(questions="[]")
-			//- 		.question
-			//- 			kanji-view(kanji="")
-
-			//- 		.answers
-			//- 			button.answer
-			//- 			button.answer
-			//- 			button.answer
-			//- 			button.answer
-			
 			script(src="/scripts")
