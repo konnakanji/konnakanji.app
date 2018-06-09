@@ -9,7 +9,6 @@ component Layout(ctx *aero.Context)
 			title= ctx.App.Config.Title
 		body
 			app-view(loading="true")
-				nav#main-menu
 
 			//- template#multiple-choice-test-template
 			//- 	multiple-choice-test(questions="[]")

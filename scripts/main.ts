@@ -1,6 +1,7 @@
 import AppView from "elements/app-view/app-view"
 import KanjiView from "elements/kanji-view/kanji-view"
 import MultipleChoiceTest from "elements/multiple-choice-test/multiple-choice-test"
+import MainMenu from "elements/main-menu/main-menu"
 
 // Error message if browser is too old
 if(!("customElements" in window)) {
@@ -10,6 +11,7 @@ if(!("customElements" in window)) {
 // Custom element names must have a dash in their name
 const elements = new Map<string, Function>([
 	["app-view", AppView],
+	["main-menu", MainMenu],
 	["kanji-view", KanjiView],
 	["multiple-choice-test", MultipleChoiceTest]
 ])

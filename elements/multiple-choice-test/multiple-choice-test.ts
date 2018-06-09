@@ -1,6 +1,7 @@
 import AppView from "../app-view/app-view"
 import KanjiView from "../kanji-view/kanji-view"
 import randomItem from "scripts/randomItem"
+import State from "scripts/State"
 
 export default class MultipleChoiceTest extends HTMLElement {
 	appView: AppView
@@ -90,7 +91,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	onFinishTest() {
 		this.parentElement.removeChild(this)
-		this.appView.menuActivated = true
+		this.appView.mainMenu.activated = true
 	}
 
 	clearAnswers() {
@@ -103,7 +104,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	get correctAnswer() {
-		return this.appView.words.get(this.kanjiView.kanji).hiragana
+		return State.words.get(this.kanjiView.kanji).hiragana
 	}
 
 	get solved() {
@@ -111,7 +112,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	generateAnswers() {
-		let allKana = [...this.appView.words.values()]
+		let allKana = [...State.words.values()]
 		let used = new Set<string>()
 
 		// Add correct answer

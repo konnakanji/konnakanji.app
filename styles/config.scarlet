@@ -22,5 +22,8 @@ ui-background = hsl(bg-color-h, bg-color-s, ui-background-l)
 ui-disabled-color = hsla(0, 0%, 88%, 1)
 const ui-element-border-radius = 3px
 
+// Buttons
+button-color = text-color
+
 // Timings
-transition-speed = 150ms
+transition-speed = 250ms

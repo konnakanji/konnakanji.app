@@ -2,8 +2,6 @@ mixin button-hover
 	:hover,
 	&.active
 		cursor pointer
-		// color button-hover-color
-		// background button-hover-background
 
 	:active
 		transform translateY(3px)
@@ -22,6 +20,9 @@ button
 	align-items center
 	pointer-events all
 	button-hover
+
+	:focus
+		border 0
 
 	[disabled]
 		opacity 0.4
