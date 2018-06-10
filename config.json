@@ -25,7 +25,14 @@
 		"start_url": "/",
 		"display": "standalone",
 		"lang": "en",
-		"theme_color": "#ef371f"
+		"theme_color": "#ef371f",
+		"icons": [
+			{
+				"src": "images/brand/248.png",
+				"sizes": "248x248",
+				"type": "image/png"
+			}
+		]
 	},
 	"ports": {
 		"http": 4000,
