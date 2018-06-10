@@ -2,6 +2,7 @@ import AppView from "../app-view/app-view"
 import KanjiView from "../kanji-view/kanji-view"
 import randomItem from "scripts/randomItem"
 import State from "scripts/State"
+import copyToClipboard from "scripts/copyToClipboard"
 
 export default class MultipleChoiceTest extends HTMLElement {
 	appView: AppView
@@ -69,6 +70,12 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	onQuestionClicked(e: MouseEvent) {
+		if(e.target === this.kanjiView) {
+			copyToClipboard(this.kanjiView.innerText)
+			alert(`Copied ${this.kanjiView.innerText}!`)
+			return
+		}
+
 		if(!this.solved) {
 			return
 		}
