@@ -43,5 +43,9 @@ func configure(app *aero.Application) *aero.Application {
 		return ctx.File("images/" + ctx.Get("file"))
 	})
 
+	app.Get("/service-worker", func(ctx *aero.Context) string {
+		return ctx.File("scripts/ServiceWorker/ServiceWorker.js")
+	})
+
 	return app
 }

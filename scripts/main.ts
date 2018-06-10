@@ -2,6 +2,7 @@ import AppView from "elements/app-view/app-view"
 import KanjiView from "elements/kanji-view/kanji-view"
 import MultipleChoiceTest from "elements/multiple-choice-test/multiple-choice-test"
 import MainMenu from "elements/main-menu/main-menu"
+import ServiceWorkerManager from "./ServiceWorkerManager"
 
 // Error message if browser is too old
 if(!("customElements" in window)) {
@@ -20,3 +21,7 @@ const elements = new Map<string, Function>([
 for(const [tag, definition] of elements.entries()) {
 	window.customElements.define(tag, definition)
 }
+
+// Service worker
+let serviceWorkerManager = new ServiceWorkerManager("/service-worker")
+serviceWorkerManager.register()

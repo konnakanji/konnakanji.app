@@ -21,8 +21,5 @@ button
 	pointer-events all
 	button-hover
 
-	:focus
-		border 0
-
 	[disabled]
 		opacity 0.4
