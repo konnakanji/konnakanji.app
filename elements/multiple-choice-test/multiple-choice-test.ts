@@ -78,7 +78,6 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	onLeftSwipe() {
-		console.log("left")
 		if(!this.solved) {
 			return
 		}
