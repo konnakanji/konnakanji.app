@@ -12,4 +12,15 @@ component Layout(ctx *aero.Context)
 		body
 			app-view(loading="true")
 
+			//- Templates
+			template#multiple-choice-test-template
+				.question
+					kanji-view
+
+				.answers
+					button.answer
+					button.answer
+					button.answer
+					button.answer
+
 			script(src="/scripts")

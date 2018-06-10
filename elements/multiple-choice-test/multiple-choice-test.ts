@@ -3,6 +3,7 @@ import KanjiView from "../kanji-view/kanji-view"
 import randomItem from "scripts/randomItem"
 import State from "scripts/State"
 import copyToClipboard from "scripts/copyToClipboard"
+import cloneTemplate from "scripts/cloneTemplate";
 
 export default class MultipleChoiceTest extends HTMLElement {
 	appView: AppView
@@ -26,29 +27,12 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	initDOM() {
-		this.question = document.createElement("div")
-		this.question.classList.add("question")
-		this.appendChild(this.question)
+		let template = cloneTemplate("multiple-choice-test-template")
+		this.appendChild(template)
 
-		this.kanjiView = new KanjiView()
-		this.question.appendChild(this.kanjiView)
-
-		// let returnButton = document.createElement("a")
-		// returnButton.classList.add("button")
-		// returnButton.href = "/"
-		// this.appendChild(returnButton)
-
-		this.answers = new Array<HTMLButtonElement>(4)
-
-		let answersContainer = document.createElement("div")
-		answersContainer.classList.add("answers")
-		this.appendChild(answersContainer)
-
-		for(let i = 0; i < this.answers.length; i++) {
-			this.answers[i] = document.createElement("button")
-			this.answers[i].classList.add("answer")
-			answersContainer.appendChild(this.answers[i])
-		}
+		this.question = this.getElementsByClassName("question")[0] as HTMLDivElement
+		this.kanjiView = this.getElementsByTagName("kanji-view")[0] as KanjiView
+		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
 	}
 
 	bindEventListeners() {
