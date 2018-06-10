@@ -7,12 +7,15 @@ import copyToClipboard from "scripts/copyToClipboard"
 import cloneTemplate from "scripts/cloneTemplate"
 import StatusMessages from "../status-messages/status-messages"
 
+const preventClicksTimeThreshold = 400
+
 export default class MultipleChoiceTest extends HTMLElement {
 	appView: AppView
 	kanjiView: KanjiView
 	questionsInTest: string[]
-	questionIndex: number
 	question: HTMLDivElement
+	questionIndex: number
+	questionStartTime: number
 	answers: HTMLButtonElement[]
 	touchController: TouchController
 	statusMessages: StatusMessages
@@ -122,6 +125,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.kanjiView.kanji = nextKanji
 		this.clearAnswers()
 		this.generateAnswers()
+		this.questionStartTime = Date.now()
 	}
 
 	onFinishTest() {
@@ -177,6 +181,11 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	onAnswerClicked(answer: HTMLButtonElement) {
 		if(answer.disabled) {
+			return
+		}
+
+		// Prevent accidental clicks at the start of a question
+		if(Date.now() - this.questionStartTime < preventClicksTimeThreshold) {
 			return
 		}
 
