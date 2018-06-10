@@ -69,10 +69,6 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	onQuestionClicked(e: MouseEvent) {
-		if(e.target !== this.question) {
-			return
-		}
-
 		if(!this.solved) {
 			return
 		}
