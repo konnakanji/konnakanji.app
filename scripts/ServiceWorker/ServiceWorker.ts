@@ -77,7 +77,6 @@ class MyServiceWorker {
 			let clone = response.clone()
 			this.cache.store(request, clone)
 		} catch(err) {
-			console.error(err)
 			response = await this.cache.serve(request)
 		}
 
