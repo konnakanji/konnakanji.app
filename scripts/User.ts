@@ -6,5 +6,6 @@ export default class User {
 
 	constructor(id: string) {
 		this.id = id
+		this.statistics = new Statistics()
 	}
 }

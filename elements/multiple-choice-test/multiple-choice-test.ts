@@ -6,6 +6,7 @@ import randomItem from "scripts/randomItem"
 import copyToClipboard from "scripts/copyToClipboard"
 import cloneTemplate from "scripts/cloneTemplate"
 import StatusMessages from "../status-messages/status-messages"
+import QuestionStatistics from "scripts/QuestionStatistics"
 
 const preventClicksTimeThreshold = 400
 
@@ -199,17 +200,25 @@ export default class MultipleChoiceTest extends HTMLElement {
 				return
 			}
 
-			// Show answer in green
+			// Show correct answer in green
 			answer.classList.add("correct")
+
+			// Update statistics
+			this.onCorrectAnswer()
 		} else {
+			// Show wrong answer in red
 			answer.classList.add("wrong")
 
+			// Find the correct answer to highlight it
 			for(let element of this.answers) {
 				if(element.innerText === correctAnswer) {
 					element.classList.add("correct")
 					break
 				}
 			}
+
+			// Update statistics
+			this.onWrongAnswer()
 		}
 
 		// Disable incorrect answer
@@ -218,5 +227,43 @@ export default class MultipleChoiceTest extends HTMLElement {
 				element.disabled = true
 			}
 		}
+	}
+
+	onCorrectAnswer() {
+		let stats = State.user.statistics
+		stats.comboHit++
+		stats.comboMiss = 0
+
+		let questionText = this.kanjiView.kanji
+
+		if(!stats.questions.has(questionText)) {
+			stats.questions.set(questionText, new QuestionStatistics())
+		}
+
+		let questionStats = stats.questions.get(questionText)
+		questionStats.hit++
+		questionStats.comboHit++
+		questionStats.comboMiss = 0
+		questionStats.lastAppearance = Date.now()
+		console.log(questionText, questionStats)
+	}
+
+	onWrongAnswer() {
+		let stats = State.user.statistics
+		stats.comboHit = 0
+		stats.comboMiss++
+
+		let questionText = this.kanjiView.kanji
+
+		if(!stats.questions.has(questionText)) {
+			stats.questions.set(questionText, new QuestionStatistics())
+		}
+
+		let questionStats = stats.questions.get(questionText)
+		questionStats.miss++
+		questionStats.comboMiss++
+		questionStats.comboHit = 0
+		questionStats.lastAppearance = Date.now()
+		console.log(questionText, questionStats)
 	}
 }

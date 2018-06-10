@@ -1,12 +1,14 @@
 import Word from "scripts/Word"
 import MainMenu from "../main-menu/main-menu"
 import State from "scripts/State"
+import User from "scripts/User"
 
 export default class AppView extends HTMLElement {
 	mainMenu: MainMenu
 
 	connectedCallback() {
 		State.app = this
+		State.user = new User("guest-id")
 		State.words = new Map<string, Word>()
 
 		// Main menu
