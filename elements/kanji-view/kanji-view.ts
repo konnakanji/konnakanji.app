@@ -1,14 +1,24 @@
 export default class KanjiView extends HTMLElement {
+	textElement: HTMLElement
+
 	static get observedAttributes() {
 		return ["kanji"]
 	}
 
+	connectedCallback() {
+		this.textElement = document.createElement("div")
+		this.textElement.classList.add("kanji")
+		this.appendChild(this.textElement)
+	}
+
 	attributeChangedCallback(attrName, oldVal, newVal) {
-		this.render()
+		if(attrName === "kanji") {
+			this.render()
+		}
 	}
 
 	render() {
-		this.innerText = this.kanji
+		this.textElement.innerText = this.kanji
 	}
 
 	get kanji() {

@@ -70,9 +70,9 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	onQuestionClicked(e: MouseEvent) {
-		if(e.target === this.kanjiView) {
-			copyToClipboard(this.kanjiView.innerText)
-			alert(`Copied ${this.kanjiView.innerText}!`)
+		if(e.target === this.kanjiView.textElement) {
+			copyToClipboard(this.kanjiView.kanji)
+			alert(`Copied ${this.kanjiView.kanji}!`)
 			return
 		}
 

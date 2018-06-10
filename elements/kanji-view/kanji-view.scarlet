@@ -2,6 +2,7 @@ kanji-view
 	display flex
 	justify-content center
 	align-items center
+
+.kanji
 	text-align center
 	font-size 5rem
-	// text-shadow 1px 1px 8px hsla(0, 0%, 0%, 0.1)
