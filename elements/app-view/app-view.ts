@@ -6,6 +6,7 @@ export default class AppView extends HTMLElement {
 	mainMenu: MainMenu
 
 	connectedCallback() {
+		State.app = this
 		State.words = new Map<string, Word>()
 
 		// Main menu
@@ -14,6 +15,15 @@ export default class AppView extends HTMLElement {
 
 		// Loading finished
 		this.loading = false
+	}
+
+	fade(callback: Function) {
+		this.classList.add("fade-out")
+
+		setTimeout(() => {
+			callback()
+			this.classList.remove("fade-out")
+		}, 250)
 	}
 
 	get loading() {

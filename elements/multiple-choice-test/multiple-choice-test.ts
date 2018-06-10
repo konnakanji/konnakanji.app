@@ -23,7 +23,6 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	async connectedCallback() {
-		this.appView = document.getElementsByTagName("app-view")[0] as AppView
 		this.statusMessages = document.getElementsByTagName("status-messages")[0] as StatusMessages
 
 		this.initDOM()
@@ -32,11 +31,14 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 		// Touch controller
 		this.touchController = new TouchController()
-		this.touchController.leftSwipe = () => this.onLeftSwipe()
+		this.touchController.leftSwipe = () => this.tryNext()
+
+		requestAnimationFrame(() => this.classList.remove("fade-out"))
 	}
 
 	disconnectedCallback() {
 		this.touchController.unregister()
+		document.removeEventListener("keydown", this.onKeyDown)
 	}
 
 	initDOM() {
@@ -54,6 +56,26 @@ export default class MultipleChoiceTest extends HTMLElement {
 		}
 
 		this.question.addEventListener("click", e => this.onQuestionClicked(e))
+
+		document.addEventListener("keydown", e => this.onKeyDown(e))
+	}
+
+	onKeyDown(e: KeyboardEvent) {
+		// 1-4: Answer buttons
+		if(e.keyCode >= 49 && e.keyCode <= 52) {
+			this.answers[e.keyCode - 49].click()
+			e.stopPropagation()
+			e.preventDefault()
+			return
+		}
+
+		// Space or Return: Next button
+		if(e.keyCode === 32 || e.keyCode === 13) {
+			this.tryNext()
+			e.stopPropagation()
+			e.preventDefault()
+			return
+		}
 	}
 
 	startTest() {
@@ -80,7 +102,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.nextQuestion()
 	}
 
-	onLeftSwipe() {
+	tryNext() {
 		if(!this.solved) {
 			return
 		}
@@ -92,7 +114,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.questionIndex++
 
 		if(this.questionIndex >= this.questionsInTest.length) {
-			this.onFinishTest()
+			State.app.fade(() => this.onFinishTest())
 			return
 		}
 
@@ -104,7 +126,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	onFinishTest() {
 		this.parentElement.removeChild(this)
-		this.appView.mainMenu.activated = true
+		State.app.mainMenu.activated = true
 	}
 
 	clearAnswers() {
