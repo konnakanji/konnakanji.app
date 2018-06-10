@@ -31,6 +31,16 @@
 				"src": "images/brand/248.png",
 				"sizes": "248x248",
 				"type": "image/png"
+			},
+			{
+				"src": "images/brand/192.png",
+				"sizes": "192x192",
+				"type": "image/png"
+			},
+			{
+				"src": "images/brand/128.png",
+				"sizes": "128x128",
+				"type": "image/png"
 			}
 		]
 	},
