@@ -1,9 +1,10 @@
 import AppView from "../app-view/app-view"
 import KanjiView from "../kanji-view/kanji-view"
-import randomItem from "scripts/randomItem"
+import TouchController from "scripts/TouchController"
 import State from "scripts/State"
+import randomItem from "scripts/randomItem"
 import copyToClipboard from "scripts/copyToClipboard"
-import cloneTemplate from "scripts/cloneTemplate";
+import cloneTemplate from "scripts/cloneTemplate"
 
 export default class MultipleChoiceTest extends HTMLElement {
 	appView: AppView
@@ -12,6 +13,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 	questionIndex: number
 	question: HTMLDivElement
 	answers: HTMLButtonElement[]
+	touchController: TouchController
 
 	constructor(questions: string[]) {
 		super()
@@ -24,6 +26,14 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.initDOM()
 		this.bindEventListeners()
 		this.startTest()
+
+		// Touch controller
+		this.touchController = new TouchController()
+		this.touchController.leftSwipe = () => this.onLeftSwipe()
+	}
+
+	disconnectedCallback() {
+		this.touchController.unregister()
 	}
 
 	initDOM() {
@@ -60,6 +70,15 @@ export default class MultipleChoiceTest extends HTMLElement {
 			return
 		}
 
+		if(!this.solved) {
+			return
+		}
+
+		this.nextQuestion()
+	}
+
+	onLeftSwipe() {
+		console.log("left")
 		if(!this.solved) {
 			return
 		}

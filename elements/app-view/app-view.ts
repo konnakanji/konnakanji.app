@@ -8,9 +8,11 @@ export default class AppView extends HTMLElement {
 	connectedCallback() {
 		State.words = new Map<string, Word>()
 
+		// Main menu
 		this.mainMenu = document.createElement("main-menu") as MainMenu
 		this.appendChild(this.mainMenu)
 
+		// Loading finished
 		this.loading = false
 	}
 
