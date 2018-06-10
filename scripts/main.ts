@@ -3,7 +3,7 @@ import KanjiView from "elements/kanji-view/kanji-view"
 import MultipleChoiceTest from "elements/multiple-choice-test/multiple-choice-test"
 import MainMenu from "elements/main-menu/main-menu"
 import ServiceWorkerManager from "./ServiceWorkerManager"
-import TouchController from "./TouchController"
+import StatusMessages from "elements/status-messages/status-messages"
 
 // Error message if browser is too old
 if(!("customElements" in window)) {
@@ -15,6 +15,7 @@ const elements = new Map<string, Function>([
 	["app-view", AppView],
 	["main-menu", MainMenu],
 	["kanji-view", KanjiView],
+	["status-messages", StatusMessages],
 	["multiple-choice-test", MultipleChoiceTest]
 ])
 

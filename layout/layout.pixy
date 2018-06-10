@@ -11,6 +11,7 @@ component Layout(ctx *aero.Context)
 			meta(name="theme-color", content=ctx.App.Config.Manifest.ThemeColor)
 		body
 			app-view(loading="true")
+			status-messages
 
 			//- Templates
 			template#multiple-choice-test-template

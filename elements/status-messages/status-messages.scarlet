@@ -1,0 +1,29 @@
+status-messages
+	vertical
+	width 100%
+	padding 0.5rem
+	position absolute
+	left 0
+	top 0
+	pointer-events none
+	z-index 1
+
+.status-message
+	opacity 0
+	transform translateY(-30%)
+	animation message-appear 1s forwards ease
+	color white
+	background hsl(216, 68%, 42%)
+	border-radius ui-element-border-radius
+	default-transition
+	text-align center
+	padding 0.5rem
+	margin-bottom 0.25rem
+
+animation message-appear
+	50%, 75%
+		opacity 1
+		transform translateY(0)
+	100%
+		opacity 0
+		transform translateY(-30%)

@@ -5,6 +5,7 @@ import State from "scripts/State"
 import randomItem from "scripts/randomItem"
 import copyToClipboard from "scripts/copyToClipboard"
 import cloneTemplate from "scripts/cloneTemplate"
+import StatusMessages from "../status-messages/status-messages"
 
 export default class MultipleChoiceTest extends HTMLElement {
 	appView: AppView
@@ -14,6 +15,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 	question: HTMLDivElement
 	answers: HTMLButtonElement[]
 	touchController: TouchController
+	statusMessages: StatusMessages
 
 	constructor(questions: string[]) {
 		super()
@@ -22,6 +24,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	async connectedCallback() {
 		this.appView = document.getElementsByTagName("app-view")[0] as AppView
+		this.statusMessages = document.getElementsByTagName("status-messages")[0] as StatusMessages
 
 		this.initDOM()
 		this.bindEventListeners()
@@ -66,7 +69,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 	onQuestionClicked(e: MouseEvent) {
 		if(e.target === this.kanjiView.textElement) {
 			copyToClipboard(this.kanjiView.kanji)
-			alert(`Copied ${this.kanjiView.kanji}!`)
+			this.statusMessages.post(`Copied ${this.kanjiView.kanji}`)
 			return
 		}
 
