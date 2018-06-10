@@ -3,12 +3,12 @@ component Layout(ctx *aero.Context)
 		head
 			link(rel="stylesheet", href="/styles")
 			link(rel="manifest", href="/manifest.json")
-			link(rel="shortcut icon", type="image/png", href="/images/brand/248.png")
+			link(rel="shortcut icon", type="image/png", href="/images/brand/192.png")
 
 			title= ctx.App.Config.Title
 
 			meta(name="viewport", content="width=device-width, initial-scale=1")
-		
+			meta(name="theme-color", content=ctx.App.Config.Manifest.ThemeColor)
 		body
 			app-view(loading="true")
 
