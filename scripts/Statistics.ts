@@ -11,6 +11,5 @@ export default class Statistics {
 		this.comboHit = 0
 		this.comboMiss = 0
 		this.questions = new Map<string, QuestionStatistics>()
-
 	}
 }

@@ -8,15 +8,19 @@ export default class AppView extends HTMLElement {
 
 	connectedCallback() {
 		State.app = this
-		State.user = new User("guest-id")
+		State.user = new User("guest")
 		State.words = new Map<string, Word>()
 
 		// Main menu
-		this.mainMenu = document.createElement("main-menu") as MainMenu
-		this.appendChild(this.mainMenu)
+		this.createMainMenu()
 
 		// Loading finished
 		this.loading = false
+	}
+
+	createMainMenu() {
+		this.mainMenu = document.createElement("main-menu") as MainMenu
+		this.appendChild(this.mainMenu)
 	}
 
 	fade(callback: Function) {

@@ -130,8 +130,10 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	onFinishTest() {
+		State.app.createMainMenu()
+
+		// Delete this test
 		this.parentElement.removeChild(this)
-		State.app.mainMenu.activated = true
 	}
 
 	clearAnswers() {
@@ -247,6 +249,8 @@ export default class MultipleChoiceTest extends HTMLElement {
 		questionStats.comboMiss = 0
 		questionStats.lastAppearance = Date.now()
 		console.log(questionText, questionStats)
+
+		setTimeout(() => State.user.save(), 1)
 	}
 
 	onWrongAnswer() {
@@ -267,5 +271,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		questionStats.comboHit = 0
 		questionStats.lastAppearance = Date.now()
 		console.log(questionText, questionStats)
+
+		setTimeout(() => State.user.save(), 1)
 	}
 }

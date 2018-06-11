@@ -22,15 +22,23 @@ main-menu
 	font-weight bold
 
 .wordset-count
+	horizontal
 	text-align right
 	font-size 1rem
 	line-height wordset-header-line-height
+
+.wordset-count-separator
+	margin 0 0.2rem
 
 .wordset-preview
 	font-size 0.9rem
 	margin-top 0.4rem
 	opacity 0.5
 	clip-long-text
+
+.completed
+	color white
+	background green
 
 .loading
 	opacity 0.5

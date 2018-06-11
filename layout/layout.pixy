@@ -29,7 +29,10 @@ component Layout(ctx *aero.Context)
 				.button.wordset-button
 					.wordset-header
 						.wordset-name Loading...
-						.wordset-count 0
+						.wordset-count
+							.wordset-count-learned 0
+							.wordset-count-separator /
+							.wordset-count-total 0
 					.wordset-preview ...
 
 			script(src="/scripts")

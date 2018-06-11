@@ -2,6 +2,7 @@ import MultipleChoiceTest from "../multiple-choice-test/multiple-choice-test"
 import State from "scripts/State"
 import WordSet from "scripts/WordSet"
 import cloneTemplate from "scripts/cloneTemplate"
+import filterQuestions from "scripts/filterQuestions"
 
 const predefinedWordSets = [
 	"people",
@@ -32,33 +33,32 @@ export default class MainMenu extends HTMLElement {
 			this.appendChild(template)
 
 			wordSet.parse(`/words/${name}.txt`).then(() => {
-				button.addEventListener("click", () => {
-					State.app.fade(() => this.testWordSet(wordSet))
-				})
+				let questions = [...wordSet.words.values()]
+				let questionsLeft = filterQuestions(questions)
 
 				button.classList.remove("loading")
-				button.querySelector(".wordset-count").innerHTML = wordSet.words.size.toString()
-				button.querySelector(".wordset-preview").innerHTML = [...wordSet.words.values()].join("、")
+				button.querySelector(".wordset-count-learned").innerHTML = (questions.length - questionsLeft.length).toString()
+				button.querySelector(".wordset-count-total").innerHTML = wordSet.words.size.toString()
+
+				if(questionsLeft.length === 0) {
+					button.classList.add("completed")
+					button.querySelector(".wordset-preview").innerHTML = "Nothing to learn here! Check back later."
+				} else {
+					button.querySelector(".wordset-preview").innerHTML = questionsLeft.join("、")
+
+					button.addEventListener("click", () => {
+						State.app.fade(() => this.testWordSet(questionsLeft))
+					})
+				}
 			})
 		}
 	}
 
-	get activated() {
-		return !this.classList.contains("hidden")
-	}
-
-	set activated(value: boolean) {
-		if(value) {
-			this.classList.remove("hidden")
-		} else {
-			this.classList.add("hidden")
-		}
-	}
-
-	testWordSet(wordSet: WordSet) {
-		this.activated = false
-
-		let multiTest = new MultipleChoiceTest([...wordSet.words.values()])
+	testWordSet(questions: string[]) {
+		let multiTest = new MultipleChoiceTest(questions)
 		this.parentElement.appendChild(multiTest)
+
+		// Delete this main menu
+		this.parentElement.removeChild(this)
 	}
 }
