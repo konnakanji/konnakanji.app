@@ -23,7 +23,7 @@ export default class MainMenu extends HTMLElement {
 			button.disabled = true
 			this.appendChild(button)
 
-			// button.innerText = `${wordSet.name} (${wordSet.words.size})`
+			//
 			// Preview: [...wordSet.values()].join("、")
 
 			wordSet.parse(`/words/${name}.txt`).then(() => {
@@ -32,6 +32,7 @@ export default class MainMenu extends HTMLElement {
 				})
 
 				button.disabled = false
+				button.innerText = `${wordSet.name} (${wordSet.words.size})`
 			})
 		}
 	}
