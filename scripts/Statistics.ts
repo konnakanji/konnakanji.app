@@ -1,6 +1,8 @@
 import QuestionStatistics from "./QuestionStatistics"
 
 export default class Statistics {
+	hit: number
+	miss: number
 	comboHit: number
 	comboMiss: number
 	questions: Map<string, QuestionStatistics>

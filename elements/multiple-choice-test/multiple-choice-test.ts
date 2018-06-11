@@ -231,6 +231,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	onCorrectAnswer() {
 		let stats = State.user.statistics
+		stats.hit++
 		stats.comboHit++
 		stats.comboMiss = 0
 
@@ -250,6 +251,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	onWrongAnswer() {
 		let stats = State.user.statistics
+		stats.miss++
 		stats.comboHit = 0
 		stats.comboMiss++
 
