@@ -6,7 +6,8 @@ const predefinedWordSets = [
 	"people",
 	"occupations",
 	"body",
-	"family"
+	"family",
+	"jlpt-n5"
 ]
 
 export default class MainMenu extends HTMLElement {
