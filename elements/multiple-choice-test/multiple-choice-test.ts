@@ -233,9 +233,9 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	onCorrectAnswer() {
 		let stats = State.user.statistics
-		stats.hit++
-		stats.comboHit++
-		stats.comboMiss = 0
+		stats.hits++
+		stats.comboHits++
+		stats.comboMisses = 0
 
 		let questionText = this.kanjiView.kanji
 
@@ -244,20 +244,21 @@ export default class MultipleChoiceTest extends HTMLElement {
 		}
 
 		let questionStats = stats.questions.get(questionText)
-		questionStats.hit++
-		questionStats.comboHit++
-		questionStats.comboMiss = 0
-		questionStats.lastAppearance = Date.now()
+		questionStats.hits++
+		questionStats.comboHits++
+		questionStats.comboMisses = 0
+		questionStats.lastSeen = Date.now()
 		console.log(questionText, questionStats)
 
+		// Save
 		setTimeout(() => State.user.save(), 1)
 	}
 
 	onWrongAnswer() {
 		let stats = State.user.statistics
-		stats.miss++
-		stats.comboHit = 0
-		stats.comboMiss++
+		stats.misses++
+		stats.comboHits = 0
+		stats.comboMisses++
 
 		let questionText = this.kanjiView.kanji
 
@@ -266,12 +267,13 @@ export default class MultipleChoiceTest extends HTMLElement {
 		}
 
 		let questionStats = stats.questions.get(questionText)
-		questionStats.miss++
-		questionStats.comboMiss++
-		questionStats.comboHit = 0
-		questionStats.lastAppearance = Date.now()
+		questionStats.misses++
+		questionStats.comboMisses++
+		questionStats.comboHits = 0
+		questionStats.lastSeen = Date.now()
 		console.log(questionText, questionStats)
 
+		// Save
 		setTimeout(() => State.user.save(), 1)
 	}
 }

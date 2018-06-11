@@ -60,6 +60,11 @@ class MyServiceWorker {
 			return
 		}
 
+		// Load text files from cache if available
+		if(request.url.endsWith(".txt") || request.url.endsWith(".woff2")) {
+			return evt.respondWith(this.cacheFirst(request))
+		}
+
 		return evt.respondWith(this.networkFirst(request))
 	}
 
@@ -81,6 +86,23 @@ class MyServiceWorker {
 		}
 
 		return response
+	}
+
+	async cacheFirst(request: Request) {
+		let networkResponse = fetch(request)
+		.then(response => {
+			if(!response.ok) {
+				throw "Invalid response"
+			}
+
+			// Store in cache
+			let clone = response.clone()
+			this.cache.store(request, clone)
+
+			return response
+		})
+
+		return this.cache.serve(request).catch(err => networkResponse)
 	}
 
 	// installCache is called when the service worker is installed for the first time.

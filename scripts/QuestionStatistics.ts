@@ -1,15 +1,15 @@
 export default class QuestionStatistics {
-	hit: number
-	miss: number
-	comboHit: number
-	comboMiss: number
-	lastAppearance: number
+	hits: number
+	misses: number
+	comboHits: number
+	comboMisses: number
+	lastSeen: number
 
 	constructor() {
-		this.hit = 0
-		this.miss = 0
-		this.comboHit = 0
-		this.comboMiss = 0
-		this.lastAppearance = 0
+		this.hits = 0
+		this.misses = 0
+		this.comboHits = 0
+		this.comboMisses = 0
+		this.lastSeen = 0
 	}
 }
