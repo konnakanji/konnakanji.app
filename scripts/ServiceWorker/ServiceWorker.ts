@@ -95,6 +95,13 @@ class MyServiceWorker {
 			"/words/occupations.txt",
 			"/words/family.txt",
 			"/words/body.txt",
+			"/words/animals.txt",
+			"/words/actions.txt",
+			"/words/jlpt/n5.txt",
+			"/words/jlpt/n4.txt",
+			"/words/jlpt/n3.txt",
+			"/words/jlpt/n2.txt",
+			"/words/jlpt/n1.txt",
 		]
 
 		let fetches = urls.map(url => {

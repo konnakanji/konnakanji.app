@@ -1,0 +1,54 @@
+動物|どうぶつ|animal
+犬|いぬ|dog
+猫|ねこ|cat
+牛|うし|cow
+豚|ぶた|pig
+馬|うま|horse
+羊|ひつじ|sheep
+猿|さる|monkey
+鼠|ねずみ|mouse, rat
+虎|とら|tiger
+狼|オオカミ|wolf
+兎|うさぎ|rabbit
+竜|りゅう|dragon
+鹿|しか|deer
+蛙|かえる|frog
+蟇|がま|toad
+獅子|しし|lion
+麒麟|キリン|giraffe
+象|ぞう|elephant
+鳥|とり|bird
+鶏|にわとり|chicken
+雀|すずめ|sparrow
+烏|からす|crow, raven
+鷲|わし|eagle
+鷹|たか|hawk, falcon
+魚|さかな|fish
+鯛|たい|red snapper
+海老|えび|shrimp, lobster
+鰯|いわし|sardine
+鮪|まぐろ|tuna
+鰹|かつお|bonito
+秋刀魚|さんま|pike
+鰺|あじ|horse mackerel
+鯖|さば|mackerel
+烏賊|イカ|squid
+蛸|タコ|章魚,octopus
+虫|むし|insect
+蝶|ちょう|butterfly
+蛾|ガ|moth
+蝉|せみ|cicada
+蜻蛉|トンボ|dragonfly
+飛蝗|バッタ|grasshopper
+蜘蛛|クモ|spider
+蛍|ホタル|firefly
+蝿|ハエ|蠅,housefly
+蚊|カ|mosquito, gnat
+蜚蠊|ゴキブリ|cockroach
+蝸牛|カタツムリ|snail
+蛞蝓|ナメクジ|slug
+蚯蚓|ミミズ|earthworm
+貝|かい|shellfish
+貝殻|かいがら|shell
+蜥蜴|トカゲ|lizard
+蛇|へび|snake

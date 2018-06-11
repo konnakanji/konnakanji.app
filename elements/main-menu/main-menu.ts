@@ -8,6 +8,8 @@ const predefinedWordSets = [
 	"occupations",
 	"body",
 	"family",
+	"animals",
+	"actions",
 	"jlpt/n5",
 	"jlpt/n4",
 	"jlpt/n3",
