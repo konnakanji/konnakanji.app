@@ -1,4 +1,3 @@
-import Word from "scripts/Word"
 import MultipleChoiceTest from "../multiple-choice-test/multiple-choice-test"
 import State from "scripts/State"
 import WordSet from "scripts/WordSet"
