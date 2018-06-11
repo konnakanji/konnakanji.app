@@ -1,3 +1,5 @@
+wordset-header-line-height = 2rem
+
 main-menu
 	vertical
 
@@ -16,13 +18,13 @@ main-menu
 	text-align left
 	flex 1
 	font-size 1.2rem
-	line-height 2.5rem
+	line-height wordset-header-line-height
 	font-weight bold
 
 .wordset-count
 	text-align right
 	font-size 1rem
-	line-height 2.5rem
+	line-height wordset-header-line-height
 
 .wordset-preview
 	font-size 0.9rem
