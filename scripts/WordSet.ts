@@ -16,8 +16,24 @@ export default class WordSet {
 		let lines = text.split("\n")
 
 		for(let line of lines) {
-			let [kanji, hiragana, english] = line.split("|")
+			let parts = line.split("|")
+			let kanji, hiragana, english
+
+			if(parts.length === 3) {
+				[kanji, hiragana, english] = parts
+			} else if(parts.length === 1) {
+				[kanji] = parts
+			}
+
 			let existingWord = State.words.get(kanji)
+
+			if(!hiragana && existingWord && existingWord.hiragana) {
+				hiragana = existingWord.hiragana
+			}
+
+			if(!hiragana) {
+				continue
+			}
 
 			let word = new Word(kanji, hiragana, english)
 			this.words.add(word.kanji)

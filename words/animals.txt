@@ -33,7 +33,7 @@
 鰺|あじ|horse mackerel
 鯖|さば|mackerel
 烏賊|イカ|squid
-蛸|タコ|章魚,octopus
+蛸|タコ|octopus
 虫|むし|insect
 蝶|ちょう|butterfly
 蛾|ガ|moth

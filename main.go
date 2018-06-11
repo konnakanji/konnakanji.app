@@ -47,5 +47,8 @@ func configure(app *aero.Application) *aero.Application {
 		return ctx.File("scripts/ServiceWorker/ServiceWorker.js")
 	})
 
+	// Uncomment this line if you need inline web workers:
+	// app.ContentSecurityPolicy.Set("worker-src", "'self' blob:")
+
 	return app
 }

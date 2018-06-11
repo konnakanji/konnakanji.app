@@ -15,12 +15,20 @@ const predefinedWordSets = [
 	"state",
 	"food",
 	"time",
+	"sea",
 	"materials",
 	"jlpt/n5",
 	"jlpt/n4",
 	"jlpt/n3",
 	"jlpt/n2",
-	"jlpt/n1"
+	"jlpt/n1",
+	// "grade/1",
+	// "grade/2",
+	// "grade/3",
+	// "grade/4",
+	// "grade/5",
+	// "grade/6",
+	// "常用漢字"
 ]
 
 export default class MainMenu extends HTMLElement {
