@@ -16,18 +16,23 @@ const predefinedWordSets = [
 
 export default class MainMenu extends HTMLElement {
 	async connectedCallback() {
-		State.wordSets = await Promise.all(
-			predefinedWordSets.map(topic => new WordSet(topic).parse(`/words/${topic}.txt`))
-		)
-
-		for(let wordSet of State.wordSets) {
+		for(let name of predefinedWordSets) {
+			let wordSet = new WordSet(name)
 			let button = document.createElement("button")
-			button.innerText = `${wordSet.name} (${wordSet.words.size})`
-			// Preview: [...wordSet.values()].join("、")
-			button.addEventListener("click", () => {
-				State.app.fade(() => this.testWordSet(wordSet))
-			})
+			button.innerText = wordSet.name
+			button.disabled = true
 			this.appendChild(button)
+
+			// button.innerText = `${wordSet.name} (${wordSet.words.size})`
+			// Preview: [...wordSet.values()].join("、")
+
+			wordSet.parse(`/words/${name}.txt`).then(() => {
+				button.addEventListener("click", () => {
+					State.app.fade(() => this.testWordSet(wordSet))
+				})
+
+				button.disabled = false
+			})
 		}
 	}
 
