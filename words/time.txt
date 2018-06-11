@@ -1,0 +1,19 @@
+時間|じかん|time
+時|とき|(1) time, hour, (2) occasion, moment
+暦|こよみ|calendar
+分|ふん|minute
+秒|びょう|second
+日|ひ|day
+月|つき|month
+年|とし|year
+昨日|きのう|yesterday
+今日|きょう|today
+明日|あした|tomorrow
+朝|あさ|morning
+昼|ひる|afternoon
+夕方|ゆうがた|evening
+晩|ばん|evening
+夜|よる|evening, night
+曜日|ようび|~day
+週|しゅう|week
+一週間|いっしゅうかん|one week

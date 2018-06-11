@@ -1,0 +1,8 @@
+食べ物|たべもの|food
+朝食|ちょうしょく|breakfast
+昼御飯|ひるごはん|lunch
+晩御飯|ばんごはん|supper
+御飯|ごはん|cooked rice or food
+味噌|みそ|miso
+料理|りょうり|cooking
+間食|おやつ|snack

@@ -1,0 +1,11 @@
+悲しむ|かなしむ|哀しむ,to be sad
+泣く|なく|to cry
+笑う|わらう|to laugh
+怒る|おこる|to be angry
+褒める|ほめる|to encourage
+叱る|しかる|to scold
+喜ぶ|よろこぶ|to celebrate, to be jubilant, to have joy, to have delight, to have rapture
+喜び|よろこび|joy, delight, rapture
+慰める|なぐさめる|to console, to consolate, to provide empathy
+飽きる|あきる|to be disinterested, to be bored, to be tired of, to be weary
+驚く|おどろく|to be astonished, to be surprised, to be scared
