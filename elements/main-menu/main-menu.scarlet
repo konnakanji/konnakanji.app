@@ -1,4 +1,4 @@
-wordset-header-line-height = 2rem
+const wordset-header-line-height = 2rem
 
 main-menu
 	vertical

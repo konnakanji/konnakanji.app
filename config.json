@@ -10,7 +10,9 @@
 		"mixins/layout",
 		"mixins/utils",
 		"mixins/ui",
-		"base"
+		"base",
+		"fade",
+		"input"
 	],
 	"scripts": {
 		"main": "main"

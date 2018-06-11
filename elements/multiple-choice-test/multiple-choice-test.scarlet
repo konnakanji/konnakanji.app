@@ -1,4 +1,4 @@
-answer-margin = 0.4rem
+const answer-margin = 0.4rem
 
 multiple-choice-test
 	vertical
@@ -27,14 +27,3 @@ multiple-choice-test
 .wrong
 	color white
 	background red
-	// animation-name wrong
-	// animation-duration transition-speed
-	// animation-timing-function ease
-
-// animation wrong
-// 	0%, 50%, 100%
-// 		transform translateX(0)
-// 	25%
-// 		transform translateX(-2%)
-// 	75%
-// 		transform translateX(2%)
