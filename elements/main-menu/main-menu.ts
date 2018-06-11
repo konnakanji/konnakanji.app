@@ -22,7 +22,8 @@ export default class MainMenu extends HTMLElement {
 
 		for(let wordSet of State.wordSets) {
 			let button = document.createElement("button")
-			button.innerText = wordSet.name //[...wordSet.values()].join("、")
+			button.innerText = `${wordSet.name} (${wordSet.words.size})`
+			// Preview: [...wordSet.values()].join("、")
 			button.addEventListener("click", () => {
 				State.app.fade(() => this.testWordSet(wordSet))
 			})

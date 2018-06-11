@@ -1556,7 +1556,6 @@
 助詞|じょし|particle, postposition
 助動詞|じょどうし|auxiliary verb
 自立|じりつ|independence, self-reliance
-人|じん|man, person, people
 人格|じんかく|personality, character, individuality
 人材|じんざい|man of talent
 迅速|じんそく|quick, fast, rapid, swift, prompt
