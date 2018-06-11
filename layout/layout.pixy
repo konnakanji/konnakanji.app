@@ -17,6 +17,7 @@ component Layout(ctx *aero.Context)
 			template#multiple-choice-test-template
 				.question
 					kanji-view
+					#english.fade-out
 
 				.answers
 					button.answer

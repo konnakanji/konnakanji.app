@@ -13,6 +13,7 @@ const preventClicksTimeThreshold = 400
 export default class MultipleChoiceTest extends HTMLElement {
 	appView: AppView
 	kanjiView: KanjiView
+	englishView: HTMLElement
 	questionsInTest: string[]
 	question: HTMLDivElement
 	questionIndex: number
@@ -51,6 +52,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 		this.question = this.getElementsByClassName("question")[0] as HTMLDivElement
 		this.kanjiView = this.getElementsByTagName("kanji-view")[0] as KanjiView
+		this.englishView = document.getElementById("english")
 		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
 	}
 
@@ -122,6 +124,9 @@ export default class MultipleChoiceTest extends HTMLElement {
 			return
 		}
 
+		this.englishView.innerText = ""
+		this.englishView.classList.add("fade-out")
+
 		let nextKanji = this.questionsInTest[this.questionIndex]
 		this.kanjiView.kanji = nextKanji
 		this.clearAnswers()
@@ -191,6 +196,10 @@ export default class MultipleChoiceTest extends HTMLElement {
 		if(Date.now() - this.questionStartTime < preventClicksTimeThreshold) {
 			return
 		}
+
+		// Show English translation
+		this.englishView.innerText = State.words.get(this.kanjiView.kanji).english
+		this.englishView.classList.remove("fade-out")
 
 		let correctAnswer = this.correctAnswer
 

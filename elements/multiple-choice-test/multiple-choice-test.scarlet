@@ -9,6 +9,17 @@ multiple-choice-test
 	justify-content center
 	flex 1
 
+#english
+	text-align center
+	opacity 0.5
+	margin-top 1rem
+	font-size 1.3rem
+	line-height 1.5rem
+	default-transition
+
+	&.fade-out
+		opacity 0
+
 .answers
 	horizontal-wrap
 	margin calc(answer-margin * -1)
