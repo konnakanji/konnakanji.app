@@ -1,6 +1,7 @@
 import MultipleChoiceTest from "../multiple-choice-test/multiple-choice-test"
 import State from "scripts/State"
 import WordSet from "scripts/WordSet"
+import cloneTemplate from "scripts/cloneTemplate"
 
 const predefinedWordSets = [
 	"people",
@@ -18,21 +19,20 @@ export default class MainMenu extends HTMLElement {
 	async connectedCallback() {
 		for(let name of predefinedWordSets) {
 			let wordSet = new WordSet(name)
-			let button = document.createElement("button")
-			button.innerText = wordSet.name
-			button.disabled = true
-			this.appendChild(button)
-
-			//
-			// Preview: [...wordSet.values()].join("、")
+			let template = cloneTemplate("wordset-button-template")
+			let button = template.firstElementChild as HTMLDivElement
+			button.querySelector(".wordset-name").innerHTML = wordSet.name
+			button.classList.add("loading")
+			this.appendChild(template)
 
 			wordSet.parse(`/words/${name}.txt`).then(() => {
 				button.addEventListener("click", () => {
 					State.app.fade(() => this.testWordSet(wordSet))
 				})
 
-				button.disabled = false
-				button.innerText = `${wordSet.name} (${wordSet.words.size})`
+				button.classList.remove("loading")
+				button.querySelector(".wordset-count").innerHTML = wordSet.words.size.toString()
+				button.querySelector(".wordset-preview").innerHTML = [...wordSet.words.values()].join("、")
 			})
 		}
 	}

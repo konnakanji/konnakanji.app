@@ -1,5 +1,35 @@
 main-menu
 	vertical
 
-	button
+	.wordset-button
 		margin-bottom 1rem
+
+.wordset-button
+	flex-direction column !important
+	align-items stretch !important
+
+.wordset-header
+	horizontal
+	width 100%
+
+.wordset-name
+	text-align left
+	flex 1
+	font-size 1.2rem
+	line-height 2.5rem
+	font-weight bold
+
+.wordset-count
+	text-align right
+	font-size 1rem
+	line-height 2.5rem
+
+.wordset-preview
+	font-size 0.9rem
+	margin-top 0.4rem
+	opacity 0.5
+	clip-long-text
+
+.loading
+	opacity 0.5
+	pointer-events none

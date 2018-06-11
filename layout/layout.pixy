@@ -13,7 +13,7 @@ component Layout(ctx *aero.Context)
 			app-view(loading="true")
 			status-messages
 
-			//- Templates
+			//- Multiple choice test
 			template#multiple-choice-test-template
 				.question
 					kanji-view
@@ -23,5 +23,13 @@ component Layout(ctx *aero.Context)
 					button.answer
 					button.answer
 					button.answer
+			
+			//- Wordset button
+			template#wordset-button-template
+				.button.wordset-button
+					.wordset-header
+						.wordset-name
+						.wordset-count
+					.wordset-preview
 
 			script(src="/scripts")
