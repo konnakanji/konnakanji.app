@@ -6,3 +6,4 @@ kanji-view
 .kanji
 	text-align center
 	font-size 5rem
+	line-height 6.5rem
