@@ -28,8 +28,8 @@ component Layout(ctx *aero.Context)
 			template#wordset-button-template
 				.button.wordset-button
 					.wordset-header
-						.wordset-name
-						.wordset-count
-					.wordset-preview
+						.wordset-name Loading...
+						.wordset-count 0
+					.wordset-preview ...
 
 			script(src="/scripts")
