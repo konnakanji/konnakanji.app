@@ -123,6 +123,7 @@ class MyServiceWorker {
 			"/words/state.txt",
 			"/words/food.txt",
 			"/words/time.txt",
+			"/words/materials.txt",
 			"/words/jlpt/n5.txt",
 			"/words/jlpt/n4.txt",
 			"/words/jlpt/n3.txt",

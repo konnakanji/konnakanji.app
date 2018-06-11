@@ -15,6 +15,7 @@ const predefinedWordSets = [
 	"state",
 	"food",
 	"time",
+	"materials",
 	"jlpt/n5",
 	"jlpt/n4",
 	"jlpt/n3",

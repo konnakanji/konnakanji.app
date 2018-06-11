@@ -1,0 +1,15 @@
+水|みず|water
+湯|ゆ|hot water
+氷|こおり|ice
+湯気|ゆげ|steam
+空気|くうき|air, atmosphere
+土|つち|earth, ground
+金属|きんぞく|metal, metallic
+泥|どろ|mud, mire, clay, plaster
+煙|けむり|smoke, tobacco, opium
+鉄|てつ|iron [Fe]
+銅|どう|copper [Cu]
+金|きん|gold [Au]; money
+銀|ぎん|silver [Ag]; wealth
+鉛|なまり|lead [Pb]
+塩|しお|salt [NaCl]
