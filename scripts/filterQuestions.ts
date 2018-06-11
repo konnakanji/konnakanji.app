@@ -20,13 +20,13 @@ export default function filterQuestions(questions: string[]) {
 			return true
 		}
 
-		// 2 combo: 60 minutes
-		if(stats.comboHits === 2 && since > 60 * 60000) {
+		// 2 combo: 24 hours
+		if(stats.comboHits === 2 && since > 24 * 60 * 60000) {
 			return true
 		}
 
-		// 3 combo: 24 hours
-		if(stats.comboHits === 3 && since > 24 * 60 * 60000) {
+		// 3 combo: 3 days
+		if(stats.comboHits === 3 && since > 3 * 24 * 60 * 60000) {
 			return true
 		}
 
