@@ -17,10 +17,16 @@ export default class WordSet {
 
 		for(let line of lines) {
 			let [kanji, hiragana, english] = line.split("|")
-			let word = new Word(kanji, hiragana, english)
+			let existingWord = State.words.get(kanji)
 
+			let word = new Word(kanji, hiragana, english)
 			this.words.add(word.kanji)
-			State.words.set(word.kanji, word)
+
+			if(!existingWord) {
+				State.words.set(word.kanji, word)
+			} else if(existingWord.hiragana !== hiragana) {
+				//console.warn("Word definition conflict:", kanji, existingWord.hiragana, hiragana, "in", url)
+			}
 		}
 
 		return this
