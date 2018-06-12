@@ -45,20 +45,22 @@ export default class MainMenu extends HTMLElement {
 				let questions = [...wordSet.words.values()]
 				let questionsLeft = filterQuestions(questions)
 
-				button.classList.remove("loading")
-				button.querySelector(".wordset-count-learned").innerHTML = (questions.length - questionsLeft.length).toString()
-				button.querySelector(".wordset-count-total").innerHTML = wordSet.words.size.toString()
+				requestAnimationFrame(() => {
+					button.classList.remove("loading")
+					button.querySelector(".wordset-count-learned").innerHTML = (questions.length - questionsLeft.length).toString()
+					button.querySelector(".wordset-count-total").innerHTML = wordSet.words.size.toString()
 
-				if(questionsLeft.length === 0) {
-					button.classList.add("completed")
-					button.querySelector(".wordset-preview").innerHTML = "Nothing to learn here! Check back later."
-				} else {
-					button.querySelector(".wordset-preview").innerHTML = questionsLeft.join("、")
+					if(questionsLeft.length === 0) {
+						button.classList.add("completed")
+						button.querySelector(".wordset-preview").innerHTML = "Nothing to learn here! Check back later."
+					} else {
+						button.querySelector(".wordset-preview").innerHTML = questionsLeft.join("、")
 
-					button.addEventListener("click", () => {
-						State.app.fade(() => this.testWordSet(questionsLeft))
-					})
-				}
+						button.addEventListener("click", () => {
+							State.app.fade(() => this.testWordSet(questionsLeft))
+						})
+					}
+				})
 			})
 		}
 	}
