@@ -14,7 +14,7 @@ multiple-choice-test
 	opacity 0.5
 	margin-top 1rem
 	font-size 1.3rem
-	line-height 1.5rem
+	line-height 1.6rem
 	default-transition
 
 	&.fade-out
