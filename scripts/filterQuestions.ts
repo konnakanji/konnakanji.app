@@ -1,6 +1,30 @@
 import State from "./State"
 import shuffle from "./shuffle"
 
+const minute = 60000
+const hour = 60 * minute
+const day = 24 * hour
+
+const spacedRepetitionDelay = [
+	// 0 combo: Always included
+	0,
+
+	// 1 combo: 5 minutes
+	5 * minute,
+
+	// 2 combo: 24 hours
+	24 * hour,
+
+	// 3 combo: 1 week
+	7 * day,
+
+	// 4 combo: 2 weeks
+	14 * day,
+
+	// 5+ combo: 1 month
+	30 * day,
+]
+
 export default function filterQuestions(questions: string[]) {
 	const now = Date.now()
 
@@ -8,39 +32,25 @@ export default function filterQuestions(questions: string[]) {
 		let stats = State.user.statistics.questions.get(question)
 
 		// Questions with no stats are always included
-		if(!stats || stats.comboHits === 0) {
+		if(!stats) {
 			return true
 		}
 
-		// Time since last answering that question
-		const since = now - stats.lastSeen
+		let multiplier = 1.0
 
-		// 1 combo: 5 minutes
-		if(stats.comboHits === 1 && since > 5 * 60000) {
-			return true
+		// If the user has never ever made a mistake with that question yet,
+		// double the allowed downtime. This helps the user get past the
+		// boring questions quicker.
+		if(stats.comboMisses === 0) {
+			multiplier = 2.0
 		}
 
-		// 2 combo: 24 hours
-		if(stats.comboHits === 2 && since > 24 * 60 * 60000) {
-			return true
-		}
+		// Allowed downtime since last answering that question
+		const cappedCombo = Math.min(stats.comboHits, spacedRepetitionDelay.length - 1)
+		const allowedDownTime = spacedRepetitionDelay[cappedCombo] * multiplier
 
-		// 3 combo: 3 days
-		if(stats.comboHits === 3 && since > 3 * 24 * 60 * 60000) {
-			return true
-		}
-
-		// 4 combo: 1 week
-		if(stats.comboHits === 4 && since > 7 * 24 * 60 * 60000) {
-			return true
-		}
-
-		// 5+ combo: 1 month
-		if(stats.comboHits >= 5 && since > 30 * 24 * 60 * 60000) {
-			return true
-		}
-
-		return false
+		// Include the question if the allowed downtime has passed
+		return now - stats.lastSeen > allowedDownTime
 	})
 
 	return shuffle(questions)
