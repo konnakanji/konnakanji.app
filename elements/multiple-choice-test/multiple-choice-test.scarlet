@@ -12,9 +12,9 @@ multiple-choice-test
 #english
 	text-align center
 	opacity 0.5
-	margin-top 1rem
+	margin-top 0.6rem
 	font-size 1.3rem
-	line-height 1.6rem
+	line-height 2rem
 	default-transition
 
 	&.fade-out
