@@ -23,6 +23,9 @@ export default class WordSet {
 				[kanji, hiragana, english] = parts
 			} else if(parts.length === 1) {
 				[kanji] = parts
+			} else {
+				console.warn(`Invalid word definition in ${url}: ${line}`)
+				continue
 			}
 
 			let existingWord = State.words.get(kanji)

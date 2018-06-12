@@ -208,7 +208,7 @@
 寒い|さむい|cold
 さ来年|さらいねん|year after next
 三|さん|three
-散歩|さんぽする|to stroll
+散歩|さんぽ|walk, stroll​
 四|し / よん|four
 塩|しお|salt
 時間|じかん|time
@@ -255,7 +255,7 @@
 先生|せんせい|teacher, doctor
 洗濯|せんたく|washing
 全部|ぜんぶ|all
-掃除|そうじする|to clean, to sweep
+掃除|そうじ|cleaning, sweeping
 外|そと|outside
 空|そら|sky
 大学|だいがく|university
@@ -410,7 +410,7 @@
 下手|へた|unskillful
 部屋|へや|room
 辺|へん|area
-勉強|べんきょうする|to study
+勉強|べんきょう|study
 便利|べんり|useful, convenient
 帽子|ぼうし|hat
 欲しい|ほしい|want
@@ -490,7 +490,7 @@
 旅行|りょこう|travel
 零|れい|zero
 冷蔵庫|れいぞうこ|refrigerator
-練習|れんしゅうする|to practice
+練習|れんしゅう|practice
 廊下|ろうか|corridor
 六|ろく|six
 若い|わかい|young

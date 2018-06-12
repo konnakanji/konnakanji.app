@@ -9,7 +9,7 @@
 煙|けむり|smoke, tobacco, opium
 鉄|てつ|iron [Fe]
 銅|どう|copper [Cu]
-金|きん|gold [Au]; money
-銀|ぎん|silver [Ag]; wealth
+金|きん|gold [Au], money
+銀|ぎん|silver [Ag], wealth
 鉛|なまり|lead [Pb]
 塩|しお|salt [NaCl]
