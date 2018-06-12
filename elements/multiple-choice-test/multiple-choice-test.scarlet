@@ -12,7 +12,7 @@ multiple-choice-test
 #english
 	text-align center
 	opacity 0.5
-	margin-top 0.6rem
+	margin-top 0.75rem
 	font-size 1.3rem
 	line-height 2rem
 	default-transition
