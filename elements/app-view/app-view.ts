@@ -11,11 +11,18 @@ export default class AppView extends HTMLElement {
 		State.user = new User("guest")
 		State.words = new Map<string, Word>()
 
-		// Main menu
-		this.createMainMenu()
+		// Decide what to do based on the route
+		this.route(window.location.pathname)
 
 		// Loading finished
 		this.loading = false
+	}
+
+	route(uri: string) {
+		if(!uri || uri === "/") {
+			// Main menu
+			this.createMainMenu()
+		}
 	}
 
 	createMainMenu() {
