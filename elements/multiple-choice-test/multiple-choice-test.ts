@@ -25,6 +25,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 	statusMessages: StatusMessages
 	returnButton: HTMLElement
 	hudTimer: number
+	hiddenHUDElements: Element[]
 
 	constructor(questions: string[]) {
 		super()
@@ -62,6 +63,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.comboCounter = this.querySelector(".combo-counter")
 		this.returnButton = this.querySelector(".return")
 		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
+		this.hiddenHUDElements = [...this.getElementsByClassName("hud-hidden")]
 	}
 
 	bindEventListeners() {
@@ -119,16 +121,14 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	showHUD() {
-		let hiddenElements = [...this.getElementsByClassName("hud-hidden")]
-
-		for(let element of hiddenElements) {
+		for(let element of this.hiddenHUDElements) {
 			element.classList.remove("hud-hidden")
 		}
 
 		clearTimeout(this.hudTimer)
 
 		this.hudTimer = setTimeout(() => {
-			for(let element of hiddenElements) {
+			for(let element of this.hiddenHUDElements) {
 				element.classList.add("hud-hidden")
 			}
 		}, 1000)
