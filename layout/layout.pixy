@@ -19,8 +19,8 @@ component Layout(ctx *aero.Context)
 					kanji-view
 					.english.fade-out
 					.hud
-						button.return.hud-hidden ⬅
-						.combo
+						button.return.hud-hidden menu
+						.combo.hud-hidden
 							span.combo-counter 0
 							span.combo-label  combo
 

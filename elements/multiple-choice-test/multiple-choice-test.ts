@@ -119,10 +119,19 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	showHUD() {
-		this.returnButton.classList.remove("hud-hidden")
+		let hiddenElements = [...this.getElementsByClassName("hud-hidden")]
+
+		for(let element of hiddenElements) {
+			element.classList.remove("hud-hidden")
+		}
 
 		clearTimeout(this.hudTimer)
-		this.hudTimer = setTimeout(() => this.returnButton.classList.add("hud-hidden"), 1000)
+
+		this.hudTimer = setTimeout(() => {
+			for(let element of hiddenElements) {
+				element.classList.add("hud-hidden")
+			}
+		}, 1000)
 	}
 
 	tryNext() {
