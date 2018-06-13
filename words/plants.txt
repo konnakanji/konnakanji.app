@@ -1,0 +1,20 @@
+植物|しょくぶつ|plants
+草|くさ|grass
+花|はな|flower
+実|み|fruit
+木|き|tree
+葉|は|leaf
+根|ね|root (of a plant)
+茎|くき|stem
+茸|きのこ|mushroom
+菊|きく|chrysanthemum
+桜|さくら|cherry blossom
+松|まつ|pine tree
+梅|うめ|plum tree
+藤|ふじ|wisteria
+菖蒲|あやめ|iris
+牡丹|ぼたん|peony
+萩|はぎ|bush clover
+薄|すすき|pampas grass
+紅葉|もみじ|Japanese maple
+柳|やなぎ|willow

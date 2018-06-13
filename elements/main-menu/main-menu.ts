@@ -16,6 +16,7 @@ const predefinedWordSets = [
 	"food",
 	"time",
 	"sea",
+	"plants",
 	"materials",
 	"jlpt/n5",
 	"jlpt/n4",
