@@ -1,5 +1,3 @@
-const answer-margin = 0.4rem
-
 multiple-choice-test
 	vertical
 	flex 1
@@ -8,8 +6,9 @@ multiple-choice-test
 	vertical
 	justify-content center
 	flex 1
+	position relative
 
-#english
+.english
 	text-align center
 	opacity 0.5
 	margin-top 0.75rem
@@ -19,22 +18,3 @@ multiple-choice-test
 
 	&.fade-out
 		opacity 0
-
-.answers
-	horizontal-wrap
-	margin calc(answer-margin * -1)
-	margin-top 1rem
-
-.answer
-	width calc(50% - answer-margin * 2)
-	margin answer-margin
-	font-size 1.2rem
-	clip-long-text
-
-.correct
-	color white
-	background hsl(120, 100%, 30%)
-
-.wrong
-	color white
-	background red

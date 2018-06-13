@@ -1,0 +1,20 @@
+const answer-margin = 0.4rem
+
+.answers
+	horizontal-wrap
+	margin calc(answer-margin * -1)
+	margin-top 1rem
+
+.answer
+	width calc(50% - answer-margin * 2)
+	margin answer-margin
+	font-size 1.2rem
+	clip-long-text
+
+.correct
+	color white
+	background positive-color
+
+.wrong
+	color white
+	background negative-color

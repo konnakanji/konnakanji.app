@@ -17,7 +17,12 @@ component Layout(ctx *aero.Context)
 			template#multiple-choice-test-template
 				.question
 					kanji-view
-					#english.fade-out
+					.english.fade-out
+					.hud
+						button.return.hud-hidden ⬅
+						.combo
+							span.combo-counter 0
+							span.combo-label  combo
 
 				.answers
 					button.answer

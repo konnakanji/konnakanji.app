@@ -1,0 +1,23 @@
+.return
+	position absolute
+	top 0
+	left 0
+	border-radius 50%
+	padding 0
+	width 32px
+	height 32px
+	display flex
+	justify-content center
+	align-items center
+
+.hud-hidden
+	opacity 0.25
+	box-shadow none
+
+.combo
+	position absolute
+	top 0
+	right 0
+	text-align right
+	font-size 0.7rem
+	opacity 0.5

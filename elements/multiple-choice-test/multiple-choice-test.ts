@@ -14,6 +14,8 @@ export default class MultipleChoiceTest extends HTMLElement {
 	appView: AppView
 	kanjiView: KanjiView
 	englishView: HTMLElement
+	comboView: HTMLElement
+	comboCounter: HTMLElement
 	questionsInTest: string[]
 	question: HTMLDivElement
 	questionIndex: number
@@ -21,6 +23,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 	answers: HTMLButtonElement[]
 	touchController: TouchController
 	statusMessages: StatusMessages
+	returnButton: HTMLElement
 
 	constructor(questions: string[]) {
 		super()
@@ -31,6 +34,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.statusMessages = document.getElementsByTagName("status-messages")[0] as StatusMessages
 
 		this.initDOM()
+		this.updateCombo()
 		this.bindEventListeners()
 		this.startTest()
 
@@ -52,7 +56,10 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 		this.question = this.getElementsByClassName("question")[0] as HTMLDivElement
 		this.kanjiView = this.getElementsByTagName("kanji-view")[0] as KanjiView
-		this.englishView = document.getElementById("english")
+		this.englishView = this.querySelector(".english")
+		this.comboView = this.querySelector(".combo")
+		this.comboCounter = this.querySelector(".combo-counter")
+		this.returnButton = this.querySelector(".return")
 		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
 	}
 
@@ -62,6 +69,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		}
 
 		this.question.addEventListener("click", e => this.onQuestionClicked(e))
+		this.returnButton.addEventListener("click", e => this.finishTest())
 
 		document.addEventListener("keydown", e => this.onKeyDown(e))
 	}
@@ -102,10 +110,19 @@ export default class MultipleChoiceTest extends HTMLElement {
 		}
 
 		if(!this.solved) {
+			this.showHUD()
 			return
 		}
 
 		this.nextQuestion()
+	}
+
+	hudTimer: number
+	showHUD() {
+		this.returnButton.classList.remove("hud-hidden")
+
+		clearTimeout(this.hudTimer)
+		this.hudTimer = setTimeout(() => this.returnButton.classList.add("hud-hidden"), 1000)
 	}
 
 	tryNext() {
@@ -120,7 +137,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.questionIndex++
 
 		if(this.questionIndex >= this.questionsInTest.length) {
-			State.app.fade(() => this.onFinishTest())
+			this.finishTest()
 			return
 		}
 
@@ -134,11 +151,13 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.questionStartTime = Date.now()
 	}
 
-	onFinishTest() {
-		State.app.createMainMenu()
+	finishTest() {
+		State.app.fade(() => {
+			State.app.createMainMenu()
 
-		// Delete this test
-		this.parentElement.removeChild(this)
+			// Delete this test
+			this.parentElement.removeChild(this)
+		})
 	}
 
 	clearAnswers() {
@@ -240,11 +259,24 @@ export default class MultipleChoiceTest extends HTMLElement {
 		}
 	}
 
+	updateCombo() {
+		let combo = State.user.statistics.comboHits
+
+		if(combo === 0) {
+			this.comboView.classList.add("hidden")
+		} else {
+			this.comboView.classList.remove("hidden")
+		}
+
+		this.comboCounter.innerHTML = combo.toString()
+	}
+
 	onCorrectAnswer() {
 		let stats = State.user.statistics
 		stats.hits++
 		stats.comboHits++
 		stats.comboMisses = 0
+		this.updateCombo()
 
 		let questionText = this.kanjiView.kanji
 
@@ -268,6 +300,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		stats.misses++
 		stats.comboHits = 0
 		stats.comboMisses++
+		this.updateCombo()
 
 		let questionText = this.kanjiView.kanji
 

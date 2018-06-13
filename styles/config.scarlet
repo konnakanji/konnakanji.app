@@ -10,6 +10,10 @@ bg-color-s = 0%
 bg-color-l = 96%
 bg-color = hsl(bg-color-h, bg-color-s, bg-color-l)
 
+// Correct and wrong colors
+positive-color = hsl(120, 100%, 30%)
+negative-color = hsl(0, 100%, 50%)
+
 // UI
 ui-border-color = hsla(0, 0%, 0%, 0.1)
 ui-border = 1px solid ui-border-color
