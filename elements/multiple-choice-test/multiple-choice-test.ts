@@ -7,6 +7,7 @@ import copyToClipboard from "scripts/copyToClipboard"
 import cloneTemplate from "scripts/cloneTemplate"
 import StatusMessages from "../status-messages/status-messages"
 import QuestionStatistics from "scripts/QuestionStatistics"
+import Statistics from "scripts/Statistics"
 
 const preventClicksTimeThreshold = 400
 
@@ -309,9 +310,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	onCorrectAnswer() {
 		let stats = State.user.statistics
-		stats.hits++
-		stats.comboHits++
-		stats.comboMisses = 0
+		Statistics.hit(stats)
 		this.updateCombo()
 
 		let questionText = this.kanjiView.kanji
@@ -326,7 +325,6 @@ export default class MultipleChoiceTest extends HTMLElement {
 		questionStats.comboMisses = 0
 		questionStats.lastSeen = Date.now()
 		this.updateKanjiStats()
-		console.log(questionText, questionStats)
 
 		// Save
 		setTimeout(() => State.user.save(), 1)
@@ -334,9 +332,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 
 	onWrongAnswer() {
 		let stats = State.user.statistics
-		stats.misses++
-		stats.comboHits = 0
-		stats.comboMisses++
+		Statistics.miss(stats)
 		this.updateCombo()
 
 		let questionText = this.kanjiView.kanji
@@ -351,7 +347,6 @@ export default class MultipleChoiceTest extends HTMLElement {
 		questionStats.comboHits = 0
 		questionStats.lastSeen = Date.now()
 		this.updateKanjiStats()
-		console.log(questionText, questionStats)
 
 		// Save
 		setTimeout(() => State.user.save(), 1)

@@ -13,15 +13,15 @@ export default class QuestionStatistics {
 		this.lastSeen = 0
 	}
 
-	static accuracy(stats: QuestionStatistics) {
-		if(stats.hits === 0) {
+	static accuracy(self: QuestionStatistics) {
+		if(self.hits === 0) {
 			return 0
 		}
 
-		if(stats.misses === 0) {
+		if(self.misses === 0) {
 			return 1
 		}
 
-		return stats.hits / (stats.hits + stats.misses)
+		return self.hits / (self.hits + self.misses)
 	}
 }
