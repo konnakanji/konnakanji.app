@@ -24,6 +24,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 	touchController: TouchController
 	statusMessages: StatusMessages
 	returnButton: HTMLElement
+	hudTimer: number
 
 	constructor(questions: string[]) {
 		super()
@@ -117,7 +118,6 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.nextQuestion()
 	}
 
-	hudTimer: number
 	showHUD() {
 		this.returnButton.classList.remove("hud-hidden")
 
