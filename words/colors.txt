@@ -1,0 +1,12 @@
+色|いろ|color
+赤|あか|red
+黄色|きいろ|yellow
+緑|みどり|green
+青|あお|blue
+紫|むらさき|purple
+白|しろ|white
+黒|くろ|black
+茶色|ちゃいろ|brown
+灰色|はいいろ|grey
+桃色|ももいろ|pink
+橙色|だいだいいろ|orange
