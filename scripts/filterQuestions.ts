@@ -12,14 +12,14 @@ const spacedRepetitionDelay = [
 	// 1 combo: 5 minutes
 	5 * minute,
 
-	// 2 combo: 24 hours
-	24 * hour,
+	// 2 combo: 12 hours
+	12 * hour,
 
-	// 3 combo: 1 week
+	// 3 combo: 3 days
+	3 * day,
+
+	// 4 combo: 1 week
 	7 * day,
-
-	// 4 combo: 2 weeks
-	14 * day,
 
 	// 5+ combo: 1 month
 	30 * day,
@@ -41,7 +41,7 @@ export default function filterQuestions(questions: string[]) {
 		// If the user has never ever made a mistake with that question yet,
 		// double the allowed downtime. This helps the user get past the
 		// boring questions quicker.
-		if(stats.comboMisses === 0) {
+		if(stats.comboMisses === 0 && stats.comboHits > 1) {
 			multiplier = 2.0
 		}
 

@@ -12,6 +12,7 @@ const predefinedWordSets = [
 	"directions",
 	"time",
 	"colors",
+	"weather",
 	"animals",
 	"emotions",
 	"food",

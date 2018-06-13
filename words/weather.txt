@@ -1,0 +1,13 @@
+太陽|たいよう|sun
+月|つき|moon
+星|ほし|star
+天気|てんき|weather
+晴れ|はれ|clear weather
+雨|あめ|rain
+曇り|くもり|cloudy
+雪|ゆき|snow
+風|かぜ|wind
+雷|かみなり|thunder, lightning
+台風|たいふう|typhoon
+嵐|あらし|storm
+空|そら|sky
