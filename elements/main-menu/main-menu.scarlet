@@ -38,7 +38,7 @@ main-menu
 
 .completed
 	color white
-	background green
+	background-color green
 
 .loading
 	opacity 0.5
