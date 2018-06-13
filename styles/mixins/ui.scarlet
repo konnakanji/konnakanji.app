@@ -1,8 +1,8 @@
 mixin ui-element
 	border 1px solid ui-border-color
-	background ui-background
+	background-color ui-background
 	border-radius ui-element-border-radius
 	default-transition
-	
+
 	:hover
 		border-color ui-hover-border-color
