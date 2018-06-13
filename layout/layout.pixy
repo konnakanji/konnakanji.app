@@ -37,7 +37,7 @@ component Layout(ctx *aero.Context)
 			
 			//- Wordset button
 			template#wordset-button-template
-				.button.wordset-button
+				.button.wordset-button.loading
 					.wordset-header
 						.wordset-name Loading...
 						.wordset-count

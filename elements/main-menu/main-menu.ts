@@ -36,13 +36,12 @@ const predefinedWordSets = [
 ]
 
 export default class MainMenu extends HTMLElement {
-	async connectedCallback() {
+	connectedCallback() {
 		for(let name of predefinedWordSets) {
 			let wordSet = new WordSet(name)
 			let template = cloneTemplate("wordset-button-template")
 			let button = template.firstElementChild as HTMLDivElement
 			button.querySelector(".wordset-name").innerHTML = wordSet.name
-			button.classList.add("loading")
 			this.appendChild(template)
 
 			wordSet.parse(`/words/${name}.txt`).then(() => {
