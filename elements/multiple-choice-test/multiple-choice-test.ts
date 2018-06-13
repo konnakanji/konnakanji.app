@@ -37,7 +37,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.questionsInTest = questions
 	}
 
-	async connectedCallback() {
+	connectedCallback() {
 		this.statusMessages = document.getElementsByTagName("status-messages")[0] as StatusMessages
 
 		this.initDOM()
@@ -48,8 +48,6 @@ export default class MultipleChoiceTest extends HTMLElement {
 		// Touch controller
 		this.touchController = new TouchController()
 		this.touchController.leftSwipe = () => this.tryNext()
-
-		requestAnimationFrame(() => this.classList.remove("fade-out"))
 	}
 
 	disconnectedCallback() {

@@ -3,6 +3,7 @@ import State from "scripts/State"
 import WordSet from "scripts/WordSet"
 import cloneTemplate from "scripts/cloneTemplate"
 import filterQuestions from "scripts/filterQuestions"
+import Diff from "scripts/Diff"
 
 const predefinedWordSets = [
 	"people",
@@ -41,14 +42,17 @@ export default class MainMenu extends HTMLElement {
 			let wordSet = new WordSet(name)
 			let template = cloneTemplate("wordset-button-template")
 			let button = template.firstElementChild as HTMLDivElement
-			button.querySelector(".wordset-name").innerHTML = wordSet.name
-			this.appendChild(template)
+
+			Diff.mutations.queue(() => {
+				button.querySelector(".wordset-name").innerHTML = wordSet.name
+				this.appendChild(template)
+			})
 
 			wordSet.parse(`/words/${name}.txt`).then(() => {
 				let questions = [...wordSet.words.values()]
 				let questionsLeft = filterQuestions(questions)
 
-				requestAnimationFrame(() => {
+				Diff.mutations.queue(() => {
 					button.classList.remove("loading")
 					button.querySelector(".wordset-count-learned").innerHTML = (questions.length - questionsLeft.length).toString()
 					button.querySelector(".wordset-count-total").innerHTML = wordSet.words.size.toString()
