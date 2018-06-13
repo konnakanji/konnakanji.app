@@ -1,0 +1,15 @@
+北|きた|north
+東|ひがし|east
+南|みなみ|south
+西|にし|west
+右|みぎ|right
+左|ひだり|left
+上|うえ|above, up
+下|した|below, down
+前|まえ|front
+後|うしろ|behind
+向こう|むこう|the other side, opposite side
+斜め|ななめ|diagonal
+手前|てまえ|nearer, more in front
+遠い|とおい|far
+近い|ちかい|near, close
