@@ -531,7 +531,6 @@
 山林|さんりん|mountain forest, mountains and forest
 仕上がる|しあがる|to be finished
 寺院|じいん|temple
-しいんと|（する）|silent (as the grave), (deathly) quiet
 自衛|じえい|self-defense
 塩辛い|しおからい|salty (taste)
 司会|しかい|chairmanship
@@ -598,7 +597,6 @@
 習字|しゅうじ|penmanship
 修繕|しゅうぜん|repair, mending
 重体|じゅうたい|seriously ill, serious condition, critical state
-じゅうたん|（カーペット）|carpet
 終点|しゅうてん|terminus, last stop (e.g train)
 重点|じゅうてん|important point, lay stress on, colon, emphasis
 就任|しゅうにん|inauguration, assumption of office
@@ -805,7 +803,6 @@
 存ずる|ぞんずる|
 損得|そんとく|loss and gain, advantage and disadvantage
 田ぼ|たんぼ|paddy field, farm
-だいいち|（副）|first, foremost, # 1
 退院|たいいん|leaving hospital
 大学院|だいがくいん|graduate school
 大工|だいく|carpenter
@@ -1372,7 +1369,6 @@
 見舞う|みまう|to ask after (health), to visit
 未満|みまん|less than, insufficient
 名字|みょうじ|surname, family name
-ミリ|（メートル）|milli-, 10^-3
 診る|みる|to examine (medical)
 民間|みんかん|private, civilian, civil, popular, folk, unofficial
 民謡|みんよう|folk song, popular song
