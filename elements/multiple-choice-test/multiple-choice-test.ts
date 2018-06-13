@@ -16,6 +16,10 @@ export default class MultipleChoiceTest extends HTMLElement {
 	englishView: HTMLElement
 	comboView: HTMLElement
 	comboCounter: HTMLElement
+	triesView: HTMLElement
+	triesCounter: HTMLElement
+	accuracyView: HTMLElement
+	accuracyValue: HTMLElement
 	questionsInTest: string[]
 	question: HTMLDivElement
 	questionIndex: number
@@ -61,6 +65,10 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.englishView = this.querySelector(".english")
 		this.comboView = this.querySelector(".combo")
 		this.comboCounter = this.querySelector(".combo-counter")
+		this.triesView = this.querySelector(".tries")
+		this.triesCounter = this.querySelector(".tries-counter")
+		this.accuracyView = this.querySelector(".accuracy")
+		this.accuracyValue = this.querySelector(".accuracy-value")
 		this.returnButton = this.querySelector(".return")
 		this.answers = [...this.getElementsByClassName("answer")] as HTMLButtonElement[]
 		this.hiddenHUDElements = [...this.getElementsByClassName("hud-hidden")]
@@ -157,7 +165,26 @@ export default class MultipleChoiceTest extends HTMLElement {
 		this.kanjiView.kanji = nextKanji
 		this.clearAnswers()
 		this.generateAnswers()
+		this.updateKanjiStats()
 		this.questionStartTime = Date.now()
+	}
+
+	updateKanjiStats() {
+		let stats = State.user.statistics.questions.get(this.kanjiView.kanji)
+
+		if(stats) {
+			this.triesCounter.innerHTML = (stats.hits + stats.misses).toString()
+			this.triesView.classList.remove("hidden")
+
+			this.accuracyValue.innerHTML = (QuestionStatistics.accuracy(stats) * 100).toFixed(0) + "%"
+			this.accuracyView.classList.remove("hidden")
+		} else {
+			this.accuracyValue.innerHTML = ""
+			this.accuracyView.classList.add("hidden")
+
+			this.triesCounter.innerHTML = ""
+			this.triesView.classList.add("hidden")
+		}
 	}
 
 	finishTest() {
@@ -298,6 +325,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		questionStats.comboHits++
 		questionStats.comboMisses = 0
 		questionStats.lastSeen = Date.now()
+		this.updateKanjiStats()
 		console.log(questionText, questionStats)
 
 		// Save
@@ -322,6 +350,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 		questionStats.comboMisses++
 		questionStats.comboHits = 0
 		questionStats.lastSeen = Date.now()
+		this.updateKanjiStats()
 		console.log(questionText, questionStats)
 
 		// Save

@@ -23,6 +23,11 @@ component Layout(ctx *aero.Context)
 						.combo.hud-hidden
 							span.combo-counter 0
 							span.combo-label  combo
+						.tries.hud-hidden
+							span.tries-counter 0
+							span.tries-label  回
+						.accuracy.hud-hidden
+							span.accuracy-value 0%
 
 				.answers
 					button.answer

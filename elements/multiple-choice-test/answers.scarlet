@@ -3,7 +3,7 @@ const answer-margin = 0.4rem
 .answers
 	horizontal-wrap
 	margin calc(answer-margin * -1)
-	margin-top 1rem
+	margin-top answer-margin
 
 .answer
 	width calc(50% - answer-margin * 2)
