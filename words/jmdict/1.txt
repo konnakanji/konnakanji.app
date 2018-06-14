@@ -9435,8 +9435,8 @@
 コプト||Copt
 コプロセッサ||coprocessor
 コペルニクス||Kopernikus; Coponicus
-コホート||cohort (statistics,, biology, etc.)
-コーホート||cohort (statistics,, biology, etc.)
+コホート||cohort (statistics, biology, etc.)
+コーホート||cohort (statistics, biology, etc.)
 コボル||Common Business Oriented Language; COBOL
 コポリマー||copolymer
 コポリマ||copolymer

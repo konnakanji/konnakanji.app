@@ -42,7 +42,7 @@
 飛蝗|バッタ|grasshopper
 蜘蛛|クモ|spider
 蛍|ホタル|firefly
-蝿|ハエ|蠅,housefly
+蝿|ハエ|housefly
 蚊|カ|mosquito, gnat
 蜚蠊|ゴキブリ|cockroach
 蝸牛|カタツムリ|snail

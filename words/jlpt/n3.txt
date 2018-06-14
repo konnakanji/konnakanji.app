@@ -86,7 +86,7 @@
 従兄弟|いとこ|cousin (male)
 稲|いね|rice-plant
 居眠り|いねむり|dozing, nodding off
-命|いのち|, life, destiny
+命|いのち|life, destiny
 違反|いはん|violation (of law), transgression, infringement, breach
 衣服|いふく|clothes
 居間|いま|living room (western style)
@@ -134,7 +134,7 @@
 運動|うんどう・する|motion, exercise, to exercise
 柄|え|handle, grip
 永遠|えいえん|eternity, perpetuity, immortality, permanence
-永久|えいきゅう|eternity , perpetuity, immortality
+永久|えいきゅう|eternity, perpetuity, immortality
 影響|えいきょう|influence, effect
 営業|えいぎょう|business, trade, management
 衛星|えいせい|satellite
@@ -273,7 +273,7 @@
 金|かね|(1) gold, (2) gold general (shogi) (abbr)
 可能|かのう|possible, practicable, feasible
 株|かぶ|share, stock, stump (of tree)
-被る|かぶる|to put on , wear, cover (one's) head,
+被る|かぶる|to put on, wear, cover (one's) head,
 構う|かまう|to mind, to care about, to be concerned about
 我慢|がまん|patience, endurance, perseverance
 上|かみ|(1) first volume, (2) superior quality, (3) governmental
@@ -1539,7 +1539,7 @@
 喜び|よろこび|(a) joy, (a) delight, rapture, pleasure, gratification, rejoicing, congratulations, felicitations
 宜しい|よろしい|(hon) good, OK, all right, fine, very well, will do, may, can
 四|よん|four
-来|らい|, for (10 days), next (year)
+来|らい|for (10 days), next (year)
 楽|らく|comfort, ease
 利益|りえき|profits, gains, (political, economic) interest
 理解|りかい|understanding, comprehension
