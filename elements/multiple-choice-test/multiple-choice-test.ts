@@ -5,9 +5,9 @@ import StatusMessages from "../status-messages/status-messages"
 import QuestionStatistics from "scripts/QuestionStatistics"
 import Statistics from "scripts/Statistics"
 import State from "scripts/State"
-import randomItem from "scripts/randomItem"
 import copyToClipboard from "scripts/copyToClipboard"
 import cloneTemplate from "scripts/cloneTemplate"
+import levenshtein from "scripts/levenshtein"
 
 const preventClicksTimeThreshold = 400
 
@@ -208,13 +208,49 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	generateAnswers() {
-		let allKana = [...State.words.values()]
+		let wordPool = [...State.words.values()]
 		let used = new Set<string>()
+		let question = this.kanjiView.kanji
+		let correctAnswer = this.correctAnswer
+
+		// Sort by Levenshtein distance
+		wordPool.sort((a, b) => levenshtein(correctAnswer, a.hiragana) - levenshtein(correctAnswer, b.hiragana))
+
+		// Find kana at the end
+		let i = question.length - 1
+
+		for(; i >= 0; i--) {
+			let charCode = question.charCodeAt(i)
+			let isHiragana = charCode >= 0x3040 && charCode <= 0x309f
+			let isKatakana = charCode >= 0x30a0 && charCode <= 0x30ff
+
+			if(!isHiragana && !isKatakana) {
+				break
+			}
+		}
+
+		let kana = question.slice(i + 1)
+
+		// If there are kana at the end,
+		// only allow answers that end with the given kana.
+		if(kana.length > 0) {
+			let filteredWords = wordPool.filter(x => x.hiragana.endsWith(kana))
+
+			// If the filtered version doesn't have enough options,
+			// combine it with all the other vocab.
+			if(filteredWords.length < this.answers.length) {
+				filteredWords = filteredWords.concat(wordPool)
+			}
+
+			wordPool = filteredWords
+		}
 
 		// Add correct answer
 		let correctAnswerIndex = Math.floor(Math.random() * this.answers.length)
-		this.answers[correctAnswerIndex].innerText = this.correctAnswer
-		used.add(this.correctAnswer)
+		this.answers[correctAnswerIndex].innerText = correctAnswer
+		used.add(correctAnswer)
+
+		let count = 0
 
 		for(let answer of this.answers) {
 			// Skip existing answers
@@ -222,12 +258,19 @@ export default class MultipleChoiceTest extends HTMLElement {
 				continue
 			}
 
-			let text = randomItem(allKana).hiragana
+			if(count >= wordPool.length) {
+				answer.innerText = "-"
+				continue
+			}
+
+			let text = wordPool[count].hiragana
+			count++
 
 			// Avoid duplicate answers
-			if(allKana.length >= this.answers.length) {
-				while(used.has(text)) {
-					text = randomItem(allKana).hiragana
+			if(wordPool.length >= this.answers.length) {
+				while(used.has(text) && count < wordPool.length) {
+					text = wordPool[count].hiragana
+					count++
 				}
 			}
 
