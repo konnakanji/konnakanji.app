@@ -9,6 +9,7 @@ component Layout(ctx *aero.Context)
 
 			meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=no")
 			meta(name="theme-color", content=ctx.App.Config.Manifest.ThemeColor)
+			meta(name="description", content="Learn Japanese Kanji with vocabulary lists based on various topics.")
 		body
 			app-view(loading="true")
 			status-messages
@@ -47,3 +48,4 @@ component Layout(ctx *aero.Context)
 					.wordset-preview ...
 
 			script(src="/scripts")
+			noscript This app requires JavaScript to run.
