@@ -1,6 +1,6 @@
 const wordset-header-line-height = 2rem
 
-main-menu
+wordset-menu
 	vertical
 
 	.wordset-button

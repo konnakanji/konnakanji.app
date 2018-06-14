@@ -1,9 +1,9 @@
-import Word from "scripts/Word"
-import MainMenu from "../main-menu/main-menu"
 import State from "scripts/State"
 import User from "scripts/User"
-import MultipleChoiceTest from "../multiple-choice-test/multiple-choice-test"
+import Word from "scripts/Word"
 import WordSet from "scripts/WordSet"
+import WordSetMenu from "../wordset-menu/wordset-menu"
+import MultipleChoiceTest from "../multiple-choice-test/multiple-choice-test"
 
 export default class AppView extends HTMLElement {
 	connectedCallback() {
@@ -29,7 +29,7 @@ export default class AppView extends HTMLElement {
 
 		if(!uri || uri === "/") {
 			// Main menu
-			this.createMainMenu()
+			this.createWordSetMenu()
 		} else if(uri.startsWith("/test/")) {
 			// Test
 			this.createMultipleChoiceTest(uri.slice("/test/".length))
@@ -40,12 +40,16 @@ export default class AppView extends HTMLElement {
 		}
 	}
 
-	createMainMenu() {
-		let mainMenu = document.createElement("main-menu") as MainMenu
-		this.appendChild(mainMenu)
+	async createWordSetMenu() {
+		await customElements.whenDefined("wordset-menu")
+
+		let wordSetMenu = new WordSetMenu()
+		this.appendChild(wordSetMenu)
 	}
 
 	async createMultipleChoiceTest(name: string) {
+		await customElements.whenDefined("multiple-choice-test")
+
 		let wordSet = WordSet.get(name)
 		await wordSet.available
 

@@ -1,7 +1,7 @@
 import AppView from "elements/app-view/app-view"
 import KanjiView from "elements/kanji-view/kanji-view"
 import MultipleChoiceTest from "elements/multiple-choice-test/multiple-choice-test"
-import MainMenu from "elements/main-menu/main-menu"
+import WordSetMenu from "elements/wordset-menu/wordset-menu"
 import ServiceWorkerManager from "./ServiceWorkerManager"
 import StatusMessages from "elements/status-messages/status-messages"
 
@@ -13,7 +13,7 @@ if(!("customElements" in window)) {
 // Custom element names must have a dash in their name
 const elements = new Map<string, Function>([
 	["app-view", AppView],
-	["main-menu", MainMenu],
+	["wordset-menu", WordSetMenu],
 	["kanji-view", KanjiView],
 	["status-messages", StatusMessages],
 	["multiple-choice-test", MultipleChoiceTest]

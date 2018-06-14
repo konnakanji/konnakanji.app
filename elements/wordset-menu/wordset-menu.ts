@@ -34,7 +34,7 @@ const predefinedWordSets = [
 	// "常用漢字"
 ]
 
-export default class MainMenu extends HTMLElement {
+export default class WordSetMenu extends HTMLElement {
 	connectedCallback() {
 		for(let name of predefinedWordSets) {
 			let wordSet = WordSet.get(name)
