@@ -19,9 +19,12 @@ func configure(app *aero.Application) *aero.Application {
 		"security/default/server.key",
 	)
 
-	app.Get("/", func(ctx *aero.Context) string {
+	appCode := func(ctx *aero.Context) string {
 		return ctx.HTML(components.Layout(ctx))
-	})
+	}
+
+	app.Get("/", appCode)
+	app.Get("/test/*name", appCode)
 
 	app.Get("/scripts", func(ctx *aero.Context) string {
 		return ctx.JavaScript(js.Bundle())

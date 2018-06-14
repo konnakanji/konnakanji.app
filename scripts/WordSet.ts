@@ -1,13 +1,39 @@
 import State from "./State"
 import Word from "./Word"
+import filterQuestions from "./filterQuestions"
 
 export default class WordSet {
 	name: string
 	words: Set<string>
+	available: Promise<void>
+	filteredCache: string[]
+	filteredCacheTime: number
+
+	static all = new Map<string, WordSet>()
+
+	static get(name: string) {
+		let wordSet = WordSet.all.get(name)
+
+		if(wordSet) {
+			return wordSet
+		}
+
+		wordSet = new WordSet(name)
+		WordSet.all.set(name, wordSet)
+		return wordSet
+	}
 
 	constructor(name: string) {
 		this.name = name
 		this.words = new Set<string>()
+		this.available = this.parse(`/words/${name}.txt`)
+		this.filteredCache = []
+		this.filteredCacheTime = 0
+	}
+
+	filtered() {
+		let questions = [...this.words.values()]
+		return filterQuestions(questions)
 	}
 
 	async parse(url: string) {
@@ -47,7 +73,5 @@ export default class WordSet {
 				//console.warn("Word definition conflict:", kanji, existingWord.hiragana, hiragana, "in", url)
 			}
 		}
-
-		return this
 	}
 }

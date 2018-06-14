@@ -1,13 +1,13 @@
 import AppView from "../app-view/app-view"
 import KanjiView from "../kanji-view/kanji-view"
 import TouchController from "scripts/TouchController"
+import StatusMessages from "../status-messages/status-messages"
+import QuestionStatistics from "scripts/QuestionStatistics"
+import Statistics from "scripts/Statistics"
 import State from "scripts/State"
 import randomItem from "scripts/randomItem"
 import copyToClipboard from "scripts/copyToClipboard"
 import cloneTemplate from "scripts/cloneTemplate"
-import StatusMessages from "../status-messages/status-messages"
-import QuestionStatistics from "scripts/QuestionStatistics"
-import Statistics from "scripts/Statistics"
 
 const preventClicksTimeThreshold = 400
 
@@ -187,12 +187,7 @@ export default class MultipleChoiceTest extends HTMLElement {
 	}
 
 	finishTest() {
-		State.app.fade(() => {
-			State.app.createMainMenu()
-
-			// Delete this test
-			this.parentElement.removeChild(this)
-		})
+		State.app.fade(() => State.app.navigate("/"))
 	}
 
 	clearAnswers() {

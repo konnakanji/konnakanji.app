@@ -1,8 +1,6 @@
-import MultipleChoiceTest from "../multiple-choice-test/multiple-choice-test"
 import State from "scripts/State"
 import WordSet from "scripts/WordSet"
 import cloneTemplate from "scripts/cloneTemplate"
-import filterQuestions from "scripts/filterQuestions"
 import Diff from "scripts/Diff"
 
 const predefinedWordSets = [
@@ -39,7 +37,7 @@ const predefinedWordSets = [
 export default class MainMenu extends HTMLElement {
 	connectedCallback() {
 		for(let name of predefinedWordSets) {
-			let wordSet = new WordSet(name)
+			let wordSet = WordSet.get(name)
 			let template = cloneTemplate("wordset-button-template")
 			let button = template.firstElementChild as HTMLDivElement
 
@@ -48,35 +46,26 @@ export default class MainMenu extends HTMLElement {
 				this.appendChild(template)
 			})
 
-			wordSet.parse(`/words/${name}.txt`).then(() => {
-				let questions = [...wordSet.words.values()]
-				let questionsLeft = filterQuestions(questions)
-
+			wordSet.available.then(() => {
 				Diff.mutations.queue(() => {
+					let filtered = wordSet.filtered()
+
 					button.classList.remove("loading")
-					button.querySelector(".wordset-count-learned").innerHTML = (questions.length - questionsLeft.length).toString()
+					button.querySelector(".wordset-count-learned").innerHTML = (wordSet.words.size - filtered.length).toString()
 					button.querySelector(".wordset-count-total").innerHTML = wordSet.words.size.toString()
 
-					if(questionsLeft.length === 0) {
+					if(filtered.length === 0) {
 						button.classList.add("completed")
 						button.querySelector(".wordset-preview").innerHTML = "Nothing to learn here! Check back later."
 					} else {
-						button.querySelector(".wordset-preview").innerHTML = questionsLeft.join("、")
+						button.querySelector(".wordset-preview").innerHTML = filtered.join("、")
 
 						button.addEventListener("click", () => {
-							State.app.fade(() => this.testWordSet(questionsLeft))
+							State.app.fade(() => State.app.navigate(`/test/${name}`))
 						})
 					}
 				})
 			})
 		}
-	}
-
-	testWordSet(questions: string[]) {
-		let multiTest = new MultipleChoiceTest(questions)
-		this.parentElement.appendChild(multiTest)
-
-		// Delete this main menu
-		this.parentElement.removeChild(this)
 	}
 }
