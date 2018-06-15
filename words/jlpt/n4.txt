@@ -41,7 +41,7 @@
 運転手|うんてんしゅ|driver
 枝|えだ|branch, twig
 選ぶ|えらぶ|to choose
-遠慮|えんりょ・する|to be reserved, to be restrained
+遠慮|えんりょ|reserve, constraint, restraint
 お祝い|おいわい|congratulation
 億|おく|one hundred million
 屋上|おくじょう|rooftop
@@ -167,7 +167,7 @@
 国際|こくさい|international
 心|こころ|heart, mind, core
 御主人|ごしゅじん|(honorable) your husband
-故障|こしょう・する|to break-down
+故障|こしょう|breakdown, failure
 ご存じ|ごぞんじ|(respect form) to know
 答|こたえ|response
 小鳥|ことり|small bird
@@ -241,8 +241,8 @@
 滑る|すべる|to slide, to slip
 隅|すみ|corner, nook
 済む|すむ|to finish
-生活|せいかつ・する|to live
-生産|せいさん・する|to produce
+生活|せいかつ|living, life (one's daily existence), livelihood​
+生産|せいさん|production, manufacture​
 政治|せいじ|politics, government
 西洋|せいよう|western countries
 世界|せかい|the world
@@ -256,7 +256,7 @@
 卒業|そつぎょう|graduation
 祖父|そふ|grandfather
 祖母|そぼ|grandmother
-退院|たいいん・する|to leave hospital
+退院|たいいん|leaving hospital
 大学生|だいがくせい|university student
 大事|だいじ|important, valuable, serious matter
 大体|だいたい|generally
@@ -334,8 +334,8 @@
 二階建て|にかいだて|two storied
 逃げる|にげる|to escape
 日記|にっき|journal
-入院|にゅういん・する|to hospitalise, hospitalisation
-入学|にゅうがく・する|to enter school or university
+入院|にゅういん|hospitalisation​
+入学|にゅうがく|entry to school or university
 似る|にる|to be similar
 人形|にんぎょう|doll, figure
 盗む|ぬすむ|to steal
@@ -350,7 +350,7 @@
 葉|は|leaf
 場合|ばあい|situation
 倍|ばい|double
-拝見|はいけん・する|(humble) to look at
+拝見|はいけん|(humble) seeing, looking at
 歯医者|はいしゃ|dentist
 運ぶ|はこぶ|to transport
 始める|はじめる|to begin

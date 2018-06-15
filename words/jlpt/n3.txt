@@ -41,7 +41,7 @@
 案|あん|plan, suffix meaning draft
 暗記|あんき|memorization, learning by heart
 安定|あんてい|stability, equilibrium
-案内|あんない・する|information, guidance, leading, to guide
+案内|あんない|information, guidance, leading, to guide
 胃|い|stomach
 委員|いいん|committee member
 いえ|いえ|same as いいえ in spoken
@@ -130,8 +130,8 @@
 売れる|うれる|to be sold
 噂|うわさ|rumour, report, gossip, common talk
 運|うん|fortune, luck
-運転|うんてん・する|operation, motion, driving, to drive
-運動|うんどう・する|motion, exercise, to exercise
+運転|うんてん|operation, motion, driving, to drive
+運動|うんどう|motion, exercise, to exercise
 柄|え|handle, grip
 永遠|えいえん|eternity, perpetuity, immortality, permanence
 永久|えいきゅう|eternity, perpetuity, immortality
@@ -436,9 +436,9 @@
 下|げ|under, below, beneath
 敬意|けいい|respect, honour
 経営|けいえい|management, administration
-計画|けいかく・する|plan, project, schedule, scheme, program, to plan
+計画|けいかく|plan, project, schedule, scheme, program, to plan
 景気|けいき|business climate, condition, state
-経験|けいけん・する|experience, to experience
+経験|けいけん|experience, to experience
 傾向|けいこう|tendency, trend, inclination
 警告|けいこく|warning, advice
 計算|けいさん|calculation, reckoning
@@ -447,7 +447,7 @@
 芸術|げいじゅつ|(fine) art, the arts
 契約|けいやく|contract, compact, agreement
 経由|けいゆ|go by the way, via
-怪我|けが・する|injury (to animate object), hurt, to injure
+怪我|けが|injury (to animate object), hurt, to injure
 劇|げき|drama, play
 劇場|げきじょう|theatre, playhouse
 化粧|けしょう|make-up (cosmetic)
@@ -629,7 +629,7 @@
 事態|じたい|situation, present state of affairs
 従う|したがう|to abide (by the rules), to obey, to follow, to accompany
 したがって|したがって|therefore, consequently, in accordance with
-支度|したく・する|preparation, to prepare
+支度|したく|preparation, to prepare
 親しい|したしい|intimate, close (e.g. friend)
 七|しち・なな|seven
 質|しつ|quality, nature (of person)
@@ -689,8 +689,8 @@
 手段|しゅだん|means, way, measure
 主張|しゅちょう|claim, request, insistence, assertion
 出身|しゅっしん|graduate from, come from
-出席|しゅっせき・する|attendance, presence, to attend
-出発|しゅっぱつ・する|departure, to depart
+出席|しゅっせき|attendance, presence, to attend
+出発|しゅっぱつ|departure, to depart
 出版|しゅっぱん|publication
 首都|しゅと|capital city
 主婦|しゅふ|housewife,
@@ -701,7 +701,7 @@
 瞬間|しゅんかん|moment, second, instant
 順調|じゅんちょう|favourable, doing well, O.K., all right
 順番|じゅんばん|turn (in line), order of things
-準備|じゅんび・する|preparation, arrangements, provision, reserve, to prepare
+準備|じゅんび|preparation, arrangements, provision, reserve, to prepare
 小|しょう|small
 章|しょう|(1) chapter, section, (2) medal
 賞|しょう|prize, award
@@ -721,10 +721,10 @@
 症状|しょうじょう|symptoms, condition
 生じる|しょうじる|to produce, to yield, to result from, to arise, to be generated
 状態|じょうたい|condition, situation, circumstances, state
-招待|しょうたい・する|invitation, to invite
+招待|しょうたい|invitation, to invite
 上達|じょうたつ|improvement, advance, progress
 冗談|じょうだん|jest, joke
-承知|しょうち・する|consent, acceptance, assent, admitting, to consent
+承知|しょうち|consent, acceptance, assent, admitting, to consent
 上等|じょうとう|superiority, first class, very good
 衝突|しょうとつ|collision, conflict
 商人|しょうにん|trader, shopkeeper, merchant
@@ -739,7 +739,7 @@
 女王|じょおう|queen
 職|しょく|employment
 職業|しょくぎょう|occupation, business
-食事|しょくじ・する|meal, to have a meal
+食事|しょくじ|meal, to have a meal
 食卓|しょくたく|dining table
 食品|しょくひん|commodity, foodstuff
 植物|しょくぶつ|plant, vegetation
@@ -777,7 +777,7 @@
 身体|しんたい|the body
 身長|しんちょう|height (of body), stature
 慎重|しんちょう|discretion, prudence
-心配|しんぱい・する|worry, concern, anxiety, care, to worry
+心配|しんぱい|worry, concern, anxiety, care, to worry
 審判|しんぱん|refereeing, trial, judgement, umpire, referee
 人物|じんぶつ|character, personality, person, man, personage, talented man
 進歩|しんぽ|progress, development
@@ -857,7 +857,7 @@
 節約|せつやく|economising, saving
 是非|ぜひ|certainly, without fail
 責める|せめる|to condemn, to blame, to criticize
-世話|せわ・する|looking after, help, aid, assistance, to look after
+世話|せわ|looking after, help, aid, assistance, to look after
 善|ぜん|good, goodness, right, virtue
 全員|ぜんいん|all members (unanimity), all hands, the whole crew
 専攻|せんこう|major subject, special study
@@ -1349,7 +1349,7 @@
 減らす|へらす|to abate, to decrease, to diminish, to shorten
 減る|へる|to decrease (in size or number), to diminish, to abate
 変化|へんか|goblin, ghost, apparition, bugbear
-勉強/勉強する|べんきょう・する|study, work, to study, to sell (a thing) cheap
+勉強/勉強する|べんきょう|study, work, to study, to sell (a thing) cheap
 変更|へんこう|change, modification, alteration
 弁当|べんとう|box lunch
 方|ほう|side
@@ -1359,7 +1359,7 @@
 方向|ほうこう|direction, course, way
 報告|ほうこく|report, information
 宝石|ほうせき|gem, jewel
-放送/放送する|ほうそう・する|broadcast, 　broadcasting, to broadcast
+放送/放送する|ほうそう|broadcast, 　broadcasting, to broadcast
 豊富|ほうふ|abundance, wealth, plenty, bounty
 方法|ほうほう|method, manner, way, means, technique
 方々|ほうぼう|persons, this and that, here and there, everywhere
@@ -1505,10 +1505,10 @@
 有利|ゆうり|advantageous, better, profitable, lucrative
 床|ゆか|floor
 愉快|ゆかい|pleasant, happy
-輸出|ゆしゅつ・する|export, to export
+輸出|ゆしゅつ|export, to export
 譲る|ゆずる|to turn over, to assign, to hand over
 豊か|ゆたか|abundant, wealthy, plentiful, rich
-輸入|ゆにゅう・する|importation, import, introduction, to import
+輸入|ゆにゅう|importation, import, introduction, to import
 許す|ゆるす|to permit, to allow, to approve, to forgive
 夜|よ|evening, night
 夜明け|よあけ|dawn, daybreak
@@ -1560,7 +1560,7 @@
 冷静|れいせい|calm, composure, coolness, serenity
 列|れつ|queue, line, row
 列車|れっしゃ|train (ordinary)
-練習|れんしゅう・する|practice, to practice
+練習|れんしゅう|practice, to practice
 連想|れんそう|association (of ideas), suggestion
 連続|れんぞく|serial, consecutive, continuity, continuing
 老人|ろうじん|the aged, old person
