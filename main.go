@@ -14,10 +14,7 @@ func main() {
 }
 
 func configure(app *aero.Application) *aero.Application {
-	app.Security.Load(
-		"security/default/server.crt",
-		"security/default/server.key",
-	)
+	app.Security.Load("security/server.crt", "security/server.key")
 
 	appCode := func(ctx *aero.Context) string {
 		return ctx.HTML(components.Layout(ctx))

@@ -8,6 +8,30 @@
 
 Study Kanji by testing your own vocabulary list.
 
+## Installation
+
+Install the pre-requisites:
+
+```
+npm install -g typescript
+go get golang.org/x/tools/cmd/goimports
+go get github.com/aerogo/pack
+```
+
+Clone the repo:
+
+```
+go get github.com/konnakanji/konnakanji
+```
+
+Run TypeScript compiler:
+
+```
+tsc
+```
+
+Use the [run](https://github.com/aerogo/run) command to start the server.
+
 [godoc-image]: https://godoc.org/github.com/konnakanji/konnakanji?status.svg
 [godoc-url]: https://godoc.org/github.com/konnakanji/konnakanji
 [goreportcard-image]: https://goreportcard.com/badge/github.com/konnakanji/konnakanji
