@@ -32,6 +32,12 @@ tsc
 
 Use the [run](https://github.com/aerogo/run) command to start the server.
 
+## Author
+
+| [![Eduard Urbach on Twitter](https://gravatar.com/avatar/16ed4d41a5f244d1b10de1b791657989?s=70)](http://twitter.com/eduardurbach "Follow @eduardurbach on Twitter") |
+|---|
+| [Eduard Urbach](https://eduardurbach.com) |
+
 [godoc-image]: https://godoc.org/github.com/konnakanji/konnakanji?status.svg
 [godoc-url]: https://godoc.org/github.com/konnakanji/konnakanji
 [goreportcard-image]: https://goreportcard.com/badge/github.com/konnakanji/konnakanji
