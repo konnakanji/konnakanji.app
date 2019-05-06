@@ -5,7 +5,7 @@ import (
 	"path"
 
 	"github.com/aerogo/aero"
-	"github.com/fatih/color"
+	"github.com/akyoto/color"
 )
 
 func configureHTTPS(app *aero.Application) {
