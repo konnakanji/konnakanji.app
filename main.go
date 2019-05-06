@@ -1,6 +1,8 @@
 package main
 
 import (
+	"strings"
+
 	"github.com/aerogo/aero"
 	"github.com/konnakanji/konnakanji/components"
 	"github.com/konnakanji/konnakanji/components/css"
@@ -47,8 +49,14 @@ func configure(app *aero.Application) *aero.Application {
 		return ctx.File("scripts/ServiceWorker/ServiceWorker.js")
 	})
 
-	// Uncomment this line if you need inline web workers:
-	// app.ContentSecurityPolicy.Set("worker-src", "'self' blob:")
+	// Send "Link" header for Cloudflare on HTML responses
+	app.Use(func(ctx *aero.Context, next func()) {
+		if !strings.HasPrefix(ctx.URI(), "/_/") && strings.Contains(ctx.Request().Header().Get("Accept"), "text/html") {
+			ctx.Response().Header().Set("Link", "</styles>; rel=preload; as=style,</scripts>; rel=preload; as=script")
+		}
+
+		next()
+	})
 
 	return app
 }
