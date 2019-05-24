@@ -1,0 +1,31 @@
+{
+	"name": "Konna Kanji",
+	"short_name": "Konna Kanji",
+	"start_url": "/",
+	"display": "standalone",
+	"lang": "en",
+	"theme_color": "#1f1f1f",
+	"background_color": "#f5f5f5",
+	"icons": [
+		{
+			"src": "images/brand/512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "images/brand/248.png",
+			"sizes": "248x248",
+			"type": "image/png"
+		},
+		{
+			"src": "images/brand/192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "images/brand/144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		}
+	]
+}

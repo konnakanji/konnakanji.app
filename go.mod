@@ -4,6 +4,7 @@ go 1.13
 
 require (
 	github.com/aerogo/aero v1.2.1
+	github.com/aerogo/manifest v0.1.4
 	github.com/akyoto/color v1.8.4
 	github.com/mattn/go-colorable v0.1.2 // indirect
 	github.com/stretchr/testify v1.3.0

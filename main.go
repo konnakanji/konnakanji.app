@@ -4,9 +4,8 @@ import (
 	"strings"
 
 	"github.com/aerogo/aero"
+	"github.com/konnakanji/konnakanji/assets"
 	"github.com/konnakanji/konnakanji/components"
-	"github.com/konnakanji/konnakanji/components/css"
-	"github.com/konnakanji/konnakanji/components/js"
 )
 
 var mainApp = aero.New()
@@ -17,6 +16,7 @@ func main() {
 
 func configure(app *aero.Application) *aero.Application {
 	configureHTTPS(app)
+	assets.Load()
 
 	appCode := func(ctx *aero.Context) string {
 		return ctx.HTML(components.Layout(ctx))
@@ -26,15 +26,15 @@ func configure(app *aero.Application) *aero.Application {
 	app.Get("/test/*name", appCode)
 
 	app.Get("/scripts", func(ctx *aero.Context) string {
-		return ctx.JavaScript(js.Bundle())
+		return ctx.JavaScript(assets.JS)
 	})
 
 	app.Get("/styles", func(ctx *aero.Context) string {
-		return ctx.CSS(css.Bundle())
+		return ctx.CSS(assets.CSS)
 	})
 
 	app.Get("/manifest.json", func(ctx *aero.Context) string {
-		return ctx.JSON(app.Config.Manifest)
+		return ctx.JSON(assets.Manifest)
 	})
 
 	app.Get("/words/*file", func(ctx *aero.Context) string {
