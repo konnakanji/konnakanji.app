@@ -1,11 +1,11 @@
-component Layout(ctx *aero.Context)
+component Layout(ctx aero.Context)
 	html(lang="en")
 		head
 			link(rel="stylesheet", href="/styles")
 			link(rel="manifest", href="/manifest.json")
 			link(rel="shortcut icon", type="image/png", href="/images/brand/192.png")
 
-			title= ctx.App.Config.Title
+			title= assets.Manifest.Name
 
 			meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=no")
 			meta(name="theme-color", content=assets.Manifest.ThemeColor)

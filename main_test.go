@@ -3,22 +3,11 @@ package main
 import (
 	"net/http"
 	"net/http/httptest"
-	"syscall"
 	"testing"
-	"time"
 
 	"github.com/aerogo/aero"
-	"github.com/stretchr/testify/assert"
+	"github.com/akyoto/assert"
 )
-
-func TestMain(t *testing.T) {
-	mainApp.OnStart(func() {
-		time.Sleep(1 * time.Second)
-		syscall.Kill(syscall.Getpid(), syscall.SIGINT)
-	})
-
-	go main()
-}
 
 func TestFrontPage(t *testing.T) {
 	app := configure(aero.New())
@@ -27,7 +16,7 @@ func TestFrontPage(t *testing.T) {
 	request.Header.Set("Accept-Encoding", "gzip")
 
 	response := httptest.NewRecorder()
-	app.Handler().ServeHTTP(response, request)
+	app.ServeHTTP(response, request)
 
 	assert.Equal(t, http.StatusOK, response.Code)
 }
